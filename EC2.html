@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EC2 Commands</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="EC2">
+    <div class="sidebar">
+        <h3>Menu</h3>
+<nav>
+  <a href="Pre-defined.html">Pre-defined Commands</a>
+    <a href="EC2.html">EC2</a>
+</nav>
+    </div>
+    <div class="wrapper">
+    <div class="main-content">
+        <h2>a) Set up and stores your login</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws configure</code></h2>
+       <p>This command is used to store the login information of your instances or account by entering the following 
+        details:</p>
+        <h4>AWS Access Key ID:</h4>
+        <h4>AWS Secret Access Key:</h4>
+        <h4>Default region name: (in which your instance is present (us-east-1 etc))</h4>
+        <h4 class="three">Default output format: json/text/tables</h4>
+    </div>
+    <div class="main-content">
+      <h2 class="four">b) List All Instances</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws ec2 describe-instances</code></h2>
+    <p class="five">It fetches all information related to your EC2 instances, including instance IDs, AMI (Amazon Machine Image) ID, instance types (like t2.micro, m5.large, etc.), public and private IP addresses, instance state (running, stopped, etc.), tags (like Name), launch time, security groups, key pairs used, and subnet and VPC info.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">c) List volumes of all instances</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws ec2 describe-volumes</code></h2>
+    <p class="five">This command  shows details of EBS (Elastic Block Store) volumes attached to or available for EC2 instances in your AWS account, including volume ID, size, state, type, availability zone, encryption, and attachment details. It's used to monitor and manage storage in a specific AWS region.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">d) Start instance</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws ec2 start-instances --instance-ids i-xxxxxxxxxx</code></h2>
+    <p class="five">This command starts a stopped EC2 instance. It uses the AWS CLI, where --instance-ids specifies which instance to start. The instance must be in a stopped state, and the user must have permission to start it.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">e) Stop Instance</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws ec2 stop-instances --instance-ids i-xxxxxxxxxx</code></h2>
+    <p class="five">This command is used to stop a running EC2 instance in AWS. By specifying the instance ID (i-xxxxxxxxxx), it sends a stop request, which safely shuts down the virtual machine (instance) without terminating it.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">f) Reboot Instance</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code> aws ec2 reboot-instances --instance-ids i-xxxxxxxxxx</code></h2>
+    <p class="five">This command is used to reboot (restart) a running EC2 instance without changing its instance ID, IP address, or data on the attached volumes. It performs a soft reboot similar to restarting a computer.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">g) List running instances only</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws ec2 describe-instances --filters Name=instance-state-name,Values=running</code></h2>
+    <p class="five">This command filters the output to show only active instances, helping you quickly identify which virtual machines are currently operational.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">h) Create Snapshot</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws ec2 create-snapshot --volume-id vol-xxxxxxxxx --description "backup"</code></h2>
+    <p class="five">This command creates a snapshot (backup) of the specified EBS volume. This snapshot can be used later to restore data or create a new volume with the same content.</p>
+    </div>
+     <div class="main-content">
+      <h2 class="four">i) List Snapshots</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws ec2 describe-snapshots --owner-ids self</code></h2>
+    <p class="five"> It helps you view details of your snapshots, such as snapshot IDs, creation times, and volume sizes, for backup management and recovery planning.</p>
+    </div>
+     <div class="main-content">
+      <h2 class="four">j) Tag a Resource</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws ec2 create-tags --resources snap-xxxxxx --tags Key=Name,Value=Backup</code></h2>
+    <p class="five">This assigns a tag named Name with the value Backup to the specified snapshot. Tags help you organize and identify AWS resources easily.</p>
+    </div>
+    </div>
+</body>
+</html>
