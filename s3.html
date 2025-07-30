@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3 Commands</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="s3">
+    <div class="sidebar">
+        <h3>Menu</h3>
+<nav>
+  <a href="index.html">Pre-defined Commands</a>
+    <a href="EC2.html">EC2</a>
+    <a href="s3.html">s3</a>
+</nav>
+    </div>
+    <div class="wrapper2">
+    <div class="main-content">
+      <p class="seven">Below AWS CLI commands are used to interact with Amazon S3 — a cloud-based object storage service. You can use these commands to upload, download, list, or delete files and folders in your S3 buckets. This is useful for storing static assets, backups, logs, and other data in the cloud securely and at scale:</p>
+        <h2>a) List all Buckets</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws s3 ls</code></h2>
+       <p>Shows all the S3 buckets in your AWS account.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">b) List contents of a specific bucket</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws s3 ls s3://your-bucket-name</code></h2>
+    <p class="five">Displays the files and folders inside the selected bucket.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">c) Upload a file to a bucket</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws s3 cp file name s3://your-bucket-name/</code></h2>
+    <p class="five">Uploads your files from your local machine to the specified S3 bucket.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">d) Download a file from a bucket .</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws s3 cp s3://your-bucket-name/myfile.txt</code></h2>
+    <p class="five">Downloads files from the bucket to your current working directory ( . means current directory).</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">e) Upload a folder (recursively)</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws s3 cp foldername/ s3://your-bucket-name/ --recursive</code></h2>
+    <p class="five">Uploads the entire myfolder directory and its contents to the bucket. --recursive is used when folder consists of files or sub-folders</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">f) Download a folder</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code> aws s3 cp s3://your-bucket-name/myfolder/ ./myfolder --recursive</code></h2>
+    <p class="five">This command is used Downloads a complete folder from S3 to your local machine and the structure of the folder is preserved.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">g) Sync local folder with S3 bucket</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws s3 sync ./foldername s3://your-bucket-name/</code></h2>
+    <p class="five">It compares your local folder (./myfolder) with the bucket (s3://your-bucket-name/) and uploads only new or changed files to S3.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">h) Delete an object</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws s3 rm s3://your-bucket-name/filename.format</code></h2>
+    <p class="five">This commands deletes a single file  from the S3 bucket.</p>
+    </div>
+     <div class="main-content">
+      <h2 class="four">i) Remove all objects in a folder</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws s3 rm s3://your-bucket-name/folder-name/ --recursive</code></h2>
+    <p class="five"> --recursive tells AWS CLI to go through the folder and delete everything inside it — including all subfolders and their contents.Without --recursive, it won’t delete anything unless it’s a single file.</p>
+    </div>
+     <div class="main-content">
+      <h2 class="four">j) Create a new bucket</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws s3 mb s3://new-bucket-name</code></h2>
+    <p class="five">This creates a new S3 bucket and "mb" stands for "make bucket".</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">j) Delete a bucket</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws s3 rb s3://your-bucket-name --force</code></h2>
+    <p class="five">This commands Deletes a bucket and all of its contents. --force ensures the bucket is emptied before deletion.
+</p>
+    </div>
+    </div>
+</body>
+</html>
