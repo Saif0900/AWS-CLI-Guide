@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAM Commands</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="EC2">
+    <div class="sidebar">
+        <h3>Menu</h3>
+<nav>
+    <a href="index.html">Pre-defined Commands</a>
+    <a href="IAM.html">IAM</a>
+    <a href="EC2.html">EC2</a>
+    <a href="s3.html">s3</a>
+</nav>
+    </div>
+    <div class="wrapper">
+    <div class="main-content">
+      <p class="seven">Below commands manage AWS IAM, allowing you to create users, groups, roles, and policies. They help control access to AWS resources and ensure secure permission management.:</p>
+        <h2>a) List all IAM users</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws iam list-users</code></h2>
+       <p>Displays all the users in your AWS account.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">b) Create a new IAM user</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws iam create-user --user-name username</code></h2>
+    <p class="five">This creates a new IAM user with the specified username.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">c) Delete an IAM user</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws iam delete-user --user-name username</code></h2>
+    <p class="five">This deletes the specified IAM user from your account.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">d) Create a new IAM group</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws iam create-group --group-name groupname</code></h2>
+    <p class="five">This creates a group to manage multiple users with similar permissions.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">e)Add a user to a group</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws iam add-user-to-group --user-name username --group-name groupname</code></h2>
+    <p class="five">This adds an existing user to a specified group.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">f) Remove a user from a group</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code> aws iam remove-user-from-group --user-name username --group-name groupname</code></h2>
+    <p class="five">This removes a user from a specified IAM group.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">g) Create a policy (custom JSON)</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="eight"><pre><code>aws iam create-policy --policy-name PolicyName --policy-document file://policy-file.json</code></pre></h2>
+    <p class="five">This defines a custom policy with specific permissions.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">g) List of only AWS Managed Policies</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws iam list-policies --scope AWS</code></h2>
+    <p class="five">This list of only AWS Managed Policies</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">h) List attached user policies</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws iam list-attached-user-policies --user-name username</code></h2>
+    <p class="five">This lists all managed policies attached to a specific user.</p>
+    </div>
+     <div class="main-content">
+      <h2 class="four">i) Attach a managed policy to a user</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="eight"><pre><code>aws iam attach-user-policy --user-name username --policy-arn arn:aws:iam::aws:policy/PolicyName</code></pre></h2>
+    <p class="five"> This grants permissions to a user using AWS-managed or customer-managed policies.</p>
+    </div>
+     <div class="main-content">
+      <h2 class="four">j) Create an inline policy and attach to user</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="nine"><pre><code><code>aws iam put-user-policy --user-name username --policy-name PolicyName --policy-document file://policy-file.json</code></code></pre></h2>
+    <p class="five">This attaches a custom inline policy directly to a user.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">k) Detach a managed policy from a user</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="eight"><pre><code>aws iam detach-user-policy --user-name username --policy-arn arn:aws:iam::aws:policy/PolicyName</code></pre></h2>
+    <p class="five">This removes an attached policy from a user.</p>
+    </div>
+     <div class="main-content">
+      <h2 class="four">l) Delete an inline user policy</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws iam delete-user-policy --user-name username --policy-name Policyname</code></h2>
+    <p class="five">This deletes an inline policy that is attached to a user.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">m) List IAM roles</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws iam list-roles</code></h2>
+    <p class="five">This lists all IAM roles in your account.</p>
+    </div>
+    <div class="main-content">
+      <h2 class="four">n) Create a role</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="eight"><pre><code>aws iam create-role --role-name role-name --assume-role-policy-document file://trust-policy.json</code></pre></h2>
+    <p class="five">It creates a role for delegated access or services (like EC2).</p>
+    </div>
+     <div class="main-content">
+      <h2 class="four">o) Attach policy to role</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="eight"><pre><code>aws iam attach-role-policy --role-name role-name --policy-arn arn:aws:iam::aws:policy/PolicyName</code></pre></h2>
+    <p class="five">This assigns permissions to a role by attaching a policy.</p>
+    </div>
+     <div class="main-content">
+      <h2 class="four">o) Enable MFA device for a user (virtual)</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="ten"><pre><code>aws iam enable-mfa-device --user-name username --serial-number arn:aws:iam::account-id:mfa/device-name --authentication-code1 code1 --authentication-code2 code2</code></pre></h2>
+    <p class="five">This enables a virtual MFA device for a user to enhance account security.</p>
+    </div>
+    </div>
+</body>
+</html>
