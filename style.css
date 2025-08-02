@@ -24,12 +24,12 @@ body {
    display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .sidebar a {
     color: white;
     text-decoration: none;
-    padding: 8px 12px;
+    padding: 1px 20px;
     border-radius: 4px;
     transition: background-color 0.3s;
     font-weight: bolder;
@@ -50,11 +50,22 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    line-height: 1;
 }
 .wrapper1 {
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+.wrapper2 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 210px;
+    margin-right: 100px;
+}
+.wrapper3 .main-content{
+  font-style: italic;
+  font-size: smaller;
 }
 /*Main Content*/
 .EC2 .main-content {
@@ -74,6 +85,31 @@ body {
     font-style: italic;
     font-size: smaller;
     display: flex;
+}
+
+/* Hide dropdown by default */
+.dropdown {
+  display: none;
+  flex-direction: column;
+  background-color: #a658c4;
+  padding-left: 20px;
+}
+body.cloudwatch-page .dropdown {
+  display: flex;
+}
+.dropdown a {
+  padding: 6px 0;
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+}
+.dropdown-label {
+  display: block;
+  padding: 10px 20px;
+  font-weight: bold;
+  background-color: #9f3fbc;
+  color: white;
+  text-decoration: none;
 }
 /*Body*/
 .EC2 {
@@ -182,4 +218,23 @@ background-color: #91f4bc;         /* Light gray background */
   white-space: pre-line;             /* Keeps formatting */
   border-radius: 2px;
   font-size: smaller;
+}
+.zero1 {
+line-height: 1;
+}
+.zero2 {
+margin-top: 4px;
+}
+.zero3{
+  background-color: #91f4bc;         /* Light gray background */
+  border: 2px solid #ccc;            /* Light border for square look */
+  padding: -5px;
+  margin-top: -1%;
+  margin-bottom: -0.5%;
+  font-family: 'Courier New', monospace; /* Clear, coder-style font */
+  color: #b30000;                    /* Deep red text */
+  white-space: pre-line;             /* Keeps formatting */
+  border-radius: 2px;
+  font-size: medium;
+  line-height: 1;
 }
