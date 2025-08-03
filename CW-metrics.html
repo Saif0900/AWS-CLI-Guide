@@ -19,17 +19,18 @@
       <div class="dropdown">
         <a href="CW-logs.html">Logs</a>
         <a href="CW-metrics.html">Metrics</a>
+        <a href="CW-statistics.html">Metric Statistics</a>
       </div>
 </nav>
     </div>
     <div class="wrapper3">
     <div class="main-content">
-      <h2>a) List Metrics</h2>
+      <h3>a) List Metrics</h3>
       <p class="zero1">A metric tracks performance in your AWS account—like EC2 CPU usage, Lambda invocations, network traffic, or website errors—acting as a health check for your resources.</p>
         <h4 class="one">Command:</h4>
        <h2 class="two"><code>aws cloudwatch list-metrics</code></h2>
     <p class="five">This command is used to retrieve a list of available CloudWatch metrics for your AWS account. This includes metrics automatically collected from AWS services like EC2, RDS, Lambda, etc., and also any custom metrics you've pushed using put-metric-data.</p>
-    <h2> Optional parameters you can add:</h2>
+    <h4> Optional parameters you can add:</h4>
     </div>
 <div class="wrapper2">
   <table border="1">
@@ -38,15 +39,15 @@
 <th>Description</th>
 </tr>
 <tr>
-  <td>--namespace</td>
+  <td>--namespace (where the metric lives)</td>
   <td>Filter by AWS service namespace (e.g., AWS/EC2)</td>
 </tr>
 <tr>
-  <td>--metric-name</td>
+  <td>--metric-name (what you're measuring)</td>
   <td>Filter by a specific metric name (e.g., CPUUtilization)</td>
 </tr>
 <tr>
-  <td>--dimensions</td>
+  <td>--dimensions ( Who or what the measurement is for)</td>
   <td>Filter by specific dimensions (e.g., Name=InstanceId,Value=i-1234567890abcdef0)</td>
 </tr>
 <tr>
@@ -56,17 +57,17 @@
 </table>
 </div>
 <div class="main-content">
-      <h3 class="zero2">e) List only EC2 metrics</h3>
+      <h3 class="zero2">b) List only EC2 metrics</h3>
         <h4 class="one">Command:</h4>
        <h2 class="two"><code>aws cloudwatch list-metrics --namespace AWS/EC2</code></h2>
     </div>
     <div class="main-content">
-      <h3 class="zero2">e)List only CPU-Utilization metric across all services</h3>
+      <h3 class="zero2">c)List only CPU-Utilization metric across all services</h3>
         <h4 class="one">Command:</h4>
        <h2 class="two"><code>aws cloudwatch list-metrics --metric-name CPUUtilization</code></h2>
     </div>
     <div class="main-content">
-      <h3 class=zero2">e) List metrics for a specific EC2 instance</h3>
+      <h3 class=zero2">d) List metrics for a specific EC2 instance</h3>
         <h4 class="one">Command:</h4>
        <h2 class="zero3"><pre><code>aws cloudwatch list-metrics \
    --namespace AWS/EC2 \

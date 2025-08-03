@@ -225,16 +225,31 @@ line-height: 1;
 .zero2 {
 margin-top: 4px;
 }
+/*CW-statistics*/
 .zero3{
   background-color: #91f4bc;         /* Light gray background */
   border: 2px solid #ccc;            /* Light border for square look */
-  padding: -5px;
-  margin-top: -1%;
-  margin-bottom: -0.5%;
+  margin-top: -1px;
+  margin-bottom: -1px;
   font-family: 'Courier New', monospace; /* Clear, coder-style font */
   color: #b30000;                    /* Deep red text */
   white-space: pre-line;             /* Keeps formatting */
   border-radius: 2px;
+  font-size: medium;
+  line-height: 1;
+}
+.codebox{
+  background-color: #e8eeee;         /* Light gray background */
+  border: 0px solid #e4ebeb;            /* Light border for square look */
+  margin-top: -1px;
+  margin-bottom: -1px;
+  margin-left: 200px;
+  margin-right: 20px;
+  padding-left: 20px;
+  font-family: 'Courier New', monospace; /* Clear, coder-style font */
+  color: #030202;                    /* Deep red text */
+  white-space: pre-line;             /* Keeps formatting */
+  border-radius: 15px;
   font-size: medium;
   line-height: 1;
 }

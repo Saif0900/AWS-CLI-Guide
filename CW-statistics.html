@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudWatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cloudwatch-page">
+    <div class="sidebar">
+        <h3>Menu</h3>
+<nav>
+    <a href="index.html">Pre-defined Commands</a>
+    <a href="IAM.html">IAM</a>
+    <a href="EC2.html">EC2</a>
+    <a href="s3.html">s3</a>
+    <div class="cloudwatch-menu">
+      <a href="CloudWatch.html" class="dropdown-label">CloudWatch ▼</a>
+      <div class="dropdown">
+        <a href="CW-logs.html">Logs</a>
+        <a href="CW-metrics.html">Metrics</a>
+        <a href="CW-statistics.html">Metric Statistics</a>
+      </div>
+</nav>
+    </div>
+    <div class="wrapper">
+    <div class="main-content">
+      <p class="seven">The following commands are used to manage monitoring, logging, and alarms in AWS CloudWatch. They help you work with log groups and streams, view and push logs, create and manage metric alarms, and monitor performance metrics of AWS services:</p>
+        <h2>a) aws cloudwatch get-metric-statistics</h2>
+        <h4 class="one">Command:</h4>
+       <h2 class="two"><code>aws cloudwatch get-Metric Statistics</code></h2>
+       <p class="zero1">This command gets past data for a specific metric during a set time period. You have to add  parameters to customize what data you want. Wihtout the parameters the command will the error:</p>
+       <h3>Followings are must required Parameters (Must be included):</h3>
+      </div>
+       <div class="wrapper2">
+  <table border="1">
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+<tr>
+  <td>--namespace (where the metric lives)</td>
+  <td>Filter by AWS service namespace (e.g., AWS/EC2)</td>
+</tr>
+<tr>
+  <td>--metric-name (what you're measuring)</td>
+  <td>Filter by a specific metric name (e.g., CPUUtilization)</td>
+</tr>
+<tr>
+  <td>--start-time</td>
+  <td>The beginning of the time range (ISO 8601 or UNIX timestamp).</td>
+</tr>
+<tr>
+   <td>--end-time</td>
+  <td>The end of the time range.</td>
+</tr>
+<tr>
+   <td>--period</td>
+  <td>The granularity, in seconds, of the returned data points (must be a multiple of 60).</td>
+</tr>
+<tr>
+   <td>--statistics</td>
+  <td>One or more metric statistics to return (SampleCount, Average, Sum, Minimum, Maximum).</td>
+</tr>
+</table>
+</div>
+    <div class="main-content">
+      <h3 class=zero2">d) Average CPU utilization</h3>
+        <h4 class="one">Command:</h4>
+       <h2 class="zero3"><pre><code>aws cloudwatch get-metric-statistics \
+   --namespace AWS/EC2 \
+   --metric-name CPUUtilization \
+   --start-time 2025-08-01T00:00:00Z \
+   --end-time 2025-08-02T00:00:00Z \
+   --period 300 \
+   --statistics Average
+   </code></pre></h2>
+    </div>
+    <div class="codebox">
+--statistics Average
+--statistics Average Maximum
+--statistics Sum Minimum Maximum
+    </div>
+    </div>
+    </div>
+</body>
+</html>
