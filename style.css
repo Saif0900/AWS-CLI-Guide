@@ -140,12 +140,12 @@ body.cloudwatch-page .dropdown {
 .Pre-defined .main-content table{
  width: 100%;
 }
-code {
+/*code {
     color: #c7254e;            
     padding: 2px 6px;
     border-radius: 4px;
     font-family: Consolas, monospace;
-}
+}*/
 .one {
 margin-top: 2%;
 margin-bottom: 2%;
@@ -226,17 +226,25 @@ line-height: 1;
 margin-top: 4px;
 }
 /*CW-statistics*/
+.main-content2 {
+   margin-left: 180px;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    line-height: 1px;
+}
 .zero3{
-  background-color: #91f4bc;         /* Light gray background */
-  border: 2px solid #ccc;            /* Light border for square look */
-  margin-top: -1px;
-  margin-bottom: -1px;
-  font-family: 'Courier New', monospace; /* Clear, coder-style font */
-  color: #b30000;                    /* Deep red text */
-  white-space: pre-line;             /* Keeps formatting */
-  border-radius: 2px;
+  background-color: #e8eeee;
+  border: 1px solid #e4ebeb;
+  font-family: 'Courier New', monospace;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  line-height: 1.4;
+  padding: 15px;
   font-size: medium;
-  line-height: 1;
+  padding-top: -10%;
+  padding-bottom: -10%;
 }
 .zero4 {
   margin-top: 0px;
@@ -246,6 +254,11 @@ margin-top: 4px;
 }
 .zero5 {
   margin-top: 0px;
+}
+.zero6 {
+  margin-left: 200px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .wrapper3 {
     display: flex;
@@ -259,12 +272,13 @@ margin-top: 4px;
     flex-direction: column;
     margin-left: 210px;
     margin-right: 100px;
+    margin-bottom: 10px;
 }
 .codebox{
   background-color: #e8eeee;         /* Light gray background */
   border: 0px solid #e4ebeb;            /* Light border for square look */
-  margin-top: -1px;
-  margin-bottom: -1px;
+  margin-top: 10px;
+  margin-bottom: 5%;
   margin-left: 200px;
   margin-right: 20px;
   padding-left: 20px;

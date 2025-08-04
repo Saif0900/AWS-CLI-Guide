@@ -39,7 +39,7 @@
 <th>Description</th>
 </tr>
 <tr>
-  <td>--namespace (where the metric lives)</td>
+  <td>---namespace (where the metric lives)</td>
   <td>Filter by AWS service namespace (e.g., AWS/EC2)</td>
 </tr>
 <tr>
@@ -64,18 +64,18 @@
 </tr>
 </table>
 </div>
-    <div class="main-content">
+    <div class="main-content2">
       <h4 class="zero5">The following commands include the essential parameters mentioned above:</h4>
       <h3 class=zero2">d) Average CPU utilization</h3>
         <h4 class="one">Command:</h4>
-       <h2 class="zero3"><pre><code>aws cloudwatch get-metric-statistics \
+       <div class="zero3"><pre><code>aws cloudwatch get-metric-statistics \
    --namespace AWS/EC2 \
    --metric-name CPUUtilization \
    --start-time 2025-08-01T00:00:00Z \
    --end-time 2025-08-02T00:00:00Z \
    --period 300 \
    --statistics Average
-   </code></pre></h2>
+   </code></pre></div>
   <p> This command fetches average CPU utilization for EC2 instances over a 1-day period, using 5-minute data points (300 seconds).</p>
     </div>
   <div class="wrapper4">
@@ -85,33 +85,29 @@
 <tr>
 <th>Parameters</th>
 <th>Description</th>
+<tr>
+  <td>SampleCount</td>
+  <td>The number of data points used for the calculation</td>
 </tr>
 <tr>
-  <td>--namespace (where the metric lives)</td>
-  <td>Filter by AWS service namespace (e.g., AWS/EC2)</td>
+  <td>Average</td>
+  <td>The average of the metric values</td>
 </tr>
 <tr>
-  <td>--metric-name (what you're measuring)</td>
-  <td>Filter by a specific metric name (e.g., CPUUtilization)</td>
+  <td>Sum</td>
+  <td>The total (sum) of all metric values</td>
 </tr>
 <tr>
-  <td>--start-time</td>
-  <td>The beginning of the time range (ISO 8601 or UNIX timestamp).</td>
+   <td>Minimum</td>
+  <td>The lowest metric value observed</td>
 </tr>
 <tr>
-   <td>--end-time</td>
-  <td>The end of the time range.</td>
-</tr>
-<tr>
-   <td>--period</td>
-  <td>The granularity, in seconds, of the returned data points (must be a multiple of 60).</td>
-</tr>
-<tr>
-   <td>--statistics</td>
-  <td>One or more metric statistics to return (SampleCount, Average, Sum, Minimum, Maximum).</td>
+   <td>Maximum</td>
+  <td>The highest metric value observed</td>
 </tr>
 </table>
 </div>
+<h4 class="zero6">---statistics is a required parameter in get-metric-statistics. You can provide one or multiple statistics (space-separated) and these statistics apply to a single metric at a time. Common usage:</h4>
     <div class="codebox">
 --statistics Average
 --statistics Average Maximum
