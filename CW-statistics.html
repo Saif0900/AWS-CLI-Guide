@@ -32,7 +32,7 @@
        <p class="zero1">This command gets past data for a specific metric during a set time period. You have to add  parameters to customize what data you want. Wihtout the parameters the command will the error:</p>
        <h3>Followings are must required Parameters (Must be included):</h3>
       </div>
-       <div class="wrapper2">
+       <div class="wrapper3">
   <table border="1">
 <tr>
 <th>Parameters</th>
@@ -65,6 +65,7 @@
 </table>
 </div>
     <div class="main-content">
+      <h4 class="zero5">The following commands include the essential parameters mentioned above:</h4>
       <h3 class=zero2">d) Average CPU utilization</h3>
         <h4 class="one">Command:</h4>
        <h2 class="zero3"><pre><code>aws cloudwatch get-metric-statistics \
@@ -75,7 +76,42 @@
    --period 300 \
    --statistics Average
    </code></pre></h2>
+  <p> This command fetches average CPU utilization for EC2 instances over a 1-day period, using 5-minute data points (300 seconds).</p>
     </div>
+  <div class="wrapper4">
+  <table border="1">
+    <h2 class="zero4">Metric Statistics Options for --statistics</h2>
+    <p>You can include one or more of the following statistics:</p>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+<tr>
+  <td>--namespace (where the metric lives)</td>
+  <td>Filter by AWS service namespace (e.g., AWS/EC2)</td>
+</tr>
+<tr>
+  <td>--metric-name (what you're measuring)</td>
+  <td>Filter by a specific metric name (e.g., CPUUtilization)</td>
+</tr>
+<tr>
+  <td>--start-time</td>
+  <td>The beginning of the time range (ISO 8601 or UNIX timestamp).</td>
+</tr>
+<tr>
+   <td>--end-time</td>
+  <td>The end of the time range.</td>
+</tr>
+<tr>
+   <td>--period</td>
+  <td>The granularity, in seconds, of the returned data points (must be a multiple of 60).</td>
+</tr>
+<tr>
+   <td>--statistics</td>
+  <td>One or more metric statistics to return (SampleCount, Average, Sum, Minimum, Maximum).</td>
+</tr>
+</table>
+</div>
     <div class="codebox">
 --statistics Average
 --statistics Average Maximum
