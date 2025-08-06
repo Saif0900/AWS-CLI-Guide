@@ -30,7 +30,7 @@
         <h4 class="one">Command:</h4>
        <h2 class="two"><code>aws cloudwatch get-Metric Statistics</code></h2>
        <p class="zero1">This command gets past data for a specific metric during a set time period. You have to add  parameters to customize what data you want. Wihtout the parameters the command will the error:</p>
-       <h3>Followings are must required Parameters (Must be included):</h3>
+       <h3 class="zero9">Followings are must required Parameters (Must be included):</h3>
       </div>
        <div class="wrapper3">
   <table border="1">
@@ -39,7 +39,7 @@
 <th>Description</th>
 </tr>
 <tr>
-  <td>---namespace (where the metric lives)</td>
+  <td>--namespace (where the metric lives)</td>
   <td>Filter by AWS service namespace (e.g., AWS/EC2)</td>
 </tr>
 <tr>
@@ -60,60 +60,89 @@
 </tr>
 <tr>
    <td>--statistics</td>
-  <td>One or more metric statistics to return (SampleCount, Average, Sum, Minimum, Maximum).</td>
+  <td>One or more metric statistics to return (SampleCount, Average, Sum, Minimum, Maximum).
+    You can provide one or multiple statistics (space-separated):<br>--statistics Average<br>--statistics Average Maximum
+<br>--statistics Sum Minimum Maximum</td>
 </tr>
 </table>
 </div>
-    <div class="main-content2">
-      <h4 class="zero5">The following commands include the essential parameters mentioned above:</h4>
-      <h3 class=zero2">d) Average CPU utilization</h3>
-        <h4 class="one">Command:</h4>
-       <div class="zero3"><pre><code>aws cloudwatch get-metric-statistics \
+      <h4 class="zero5">The following example command include the essential parameters mentioned above:</h4>
+       <div class="zero3"><pre class="zero2">aws cloudwatch get-metric-statistics \
    --namespace AWS/EC2 \
    --metric-name CPUUtilization \
    --start-time 2025-08-01T00:00:00Z \
    --end-time 2025-08-02T00:00:00Z \
    --period 300 \
-   --statistics Average
-   </code></pre></div>
-  <p> This command fetches average CPU utilization for EC2 instances over a 1-day period, using 5-minute data points (300 seconds).</p>
-    </div>
-  <div class="wrapper4">
-  <table border="1">
-    <h2 class="zero4">Metric Statistics Options for --statistics</h2>
-    <p>You can include one or more of the following statistics:</p>
+   --statistics Average</pre>
+   </div>
+  <p class="zero7"> This command fetches average CPU utilization for EC2 instances over a 1-day period, using 5-minute data points (300 seconds).</p>
+  <div class="zero10">
+  <p class="zero11">Required Parameters and Their Possible Values:</p>
+  <table border="1" class="zero12">
 <tr>
-<th>Parameters</th>
-<th>Description</th>
-<tr>
-  <td>SampleCount</td>
-  <td>The number of data points used for the calculation</td>
+<th>Required Parameter</th>
+<th>Possible Values</th>
 </tr>
 <tr>
-  <td>Average</td>
-  <td>The average of the metric values</td>
+  <td>---namespace</td>
+  <td>AWS/EC2,AWS/S3,AWS/Lambda,AWS/RDS,AWS/DynamoDB,AWS/EBS,AWS/ELB,AWS/ApplicationELB,<br>AWS/ApiGateway, etc</td>
 </tr>
 <tr>
-  <td>Sum</td>
-  <td>The total (sum) of all metric values</td>
+  <td>--metric-name</td>
+  <td><b>For AWS/EC2:</b>CPUUtilization,DiskReadBytes,DiskWriteBytes,DiskReadOps,DiskWriteOps,NetworkIn,NetworkOut,<br>StatusCheckFailed,StatusCheckFailed_Instance,StatusCheckFailed_System<br><b>For AWS/S3:</b>NumberOfObjects,BucketSizeBytes,AllRequests,GetRequests,PutRequests,4xxErrors,5xxError,<br>FirstByteLatency,TotalRequestLatency<br><b>For AWS/Lambda:</b> Invocations,Errors,Duration,Throttles,ConcurrentExecutions,UnreservedConcurrentExecutions<br><b>For AWS/RDS:</b>CPUUtilization,DatabaseConnections,FreeableMemory,FreeStorageSpace,ReadLatency,WriteLatency,<br>ReadIOPS,WriteIOPS<br><b>For AWS/DynamoDB:</b> ConsumedReadCapacityUnits,ConsumedWriteCapacityUnits,ReadThrottleEvents,WriteThrottleEvents,<br>SuccessfulRequestLatency<br><b>For AWS/EBS:</b>VolumeReadBytes, VolumeWriteBytes,VolumeReadOps,VolumeWriteOps,VolumeTotalReadTime,VolumeTotalWriteTime,<br>VolumeIdleTime,VolumeQueueLength,BurstBalance,VolumeThroughputPercentage<br><b>For AWS/ELB:</b>Latency,RequestCount,HealthyHostCount,UnHealthyHostCount,BackendConnectionErrors,SurgeQueueLength,<br>SpilloverCount,HTTPCode_Backend_2XX,HTTPCode_Backend_3XX,HTTPCode_Backend_4XX,HTTPCode_Backend_5XX,<br>HTTPCode_ELB_4XX,HTTPCode_ELB_5XX<br><b>AWS/ApplicationELB:</b>RequestCount,TargetResponseTime,ActiveConnectionCount,NewConnectionCount,RejectedConnectionCount,<br>HTTPCode_Target_2XX_Count,HTTPCode_Tabrget_3XX_Count,HTTPCode_Target_4XX_Count,HTTPCode_Target_5XX_Count,<br>HTTPCode_ELB_4XX_Count,HTTPCode_ELB_5XX_Count,TargetConnectionErrorCount,<br>TargetTLSNegotiationErrorCount,TargetResetCount,ElbAuthError,ElbAuthFailure,ElbAuthLatency<br><b>AWS/ApiGateway:</b>Count,4XXError,5XXError,Latency,IntegrationLatency,CacheHitCount,CacheMissCount</td>
 </tr>
 <tr>
-   <td>Minimum</td>
-  <td>The lowest metric value observed</td>
+  <td>--start-time</td>
+  <td>Any valid ISO 8601 or UNIX timestamp Examples: 2025-08-01T00:00:00Z,2025-08-01T12:30:00Z</td>
 </tr>
 <tr>
-   <td>Maximum</td>
-  <td>The highest metric value observed</td>
+   <td>--end-time</td>
+  <td>Same format as --start-time </td>
 </tr>
+<tr>
+   <td>--period</td>
+  <td>Granularity of datapoints in seconds.
+Must be a multiple of 60 (minimum 60). Common values: 60 (1 minute),300 (5 minutes)</td>
+</tr>
+<tr>
+   <td>--statistics</td>
+  <td>One or more of: SampleCount: Number of samples collected<br>Average: The average of values<br>Sum: The total value<br>Minimum: The lowest value<br>Maximum: The highest value</td>
+   </tr>
+  </table>
+   </div>
+   <h3 class="zero4">Optional Parmeters</h3>
+   <div class="zero6">
+    <table border="1" class="zero8">
+   <tr>
+    <th>Parmeters</th>
+    <th>Description</th>
+   </tr>
+<tr>
+  <td>---namespace</td>
+  <td>AWS/EC2,AWS/S3,AWS/Lambda,AWS/RDS,AWS/DynamoDB,AWS/EBS,AWS/ELB,AWS/ApplicationELB,<br>AWS/ApiGateway, etc</td>
+</tr>
+<tr>
+  <td>--metric-name</td>
+  <td><b>For AWS/EC2:</b>CPUUtilization,DiskReadBytes,DiskWriteBytes,DiskReadOps,DiskWriteOps,NetworkIn,NetworkOut,<br>StatusCheckFailed,StatusCheckFailed_Instance,StatusCheckFailed_System<br><b>For AWS/S3:</b>NumberOfObjects,BucketSizeBytes,AllRequests,GetRequests,PutRequests,4xxErrors,5xxError,<br>FirstByteLatency,TotalRequestLatency<br><b>For AWS/Lambda:</b> Invocations,Errors,Duration,Throttles,ConcurrentExecutions,UnreservedConcurrentExecutions<br><b>For AWS/RDS:</b>CPUUtilization,DatabaseConnections,FreeableMemory,FreeStorageSpace,ReadLatency,WriteLatency,<br>ReadIOPS,WriteIOPS<br><b>For AWS/DynamoDB:</b> ConsumedReadCapacityUnits,ConsumedWriteCapacityUnits,ReadThrottleEvents,WriteThrottleEvents,<br>SuccessfulRequestLatency<br><b>For AWS/EBS:</b>VolumeReadBytes, VolumeWriteBytes,VolumeReadOps,VolumeWriteOps,VolumeTotalReadTime,VolumeTotalWriteTime,<br>VolumeIdleTime,VolumeQueueLength,BurstBalance,VolumeThroughputPercentage<br><b>For AWS/ELB:</b>Latency,RequestCount,HealthyHostCount,UnHealthyHostCount,BackendConnectionErrors,SurgeQueueLength,<br>SpilloverCount,HTTPCode_Backend_2XX,HTTPCode_Backend_3XX,HTTPCode_Backend_4XX,HTTPCode_Backend_5XX,<br>HTTPCode_ELB_4XX,HTTPCode_ELB_5XX<br><b>AWS/ApplicationELB:</b>RequestCount,TargetResponseTime,ActiveConnectionCount,NewConnectionCount,RejectedConnectionCount,<br>HTTPCode_Target_2XX_Count,HTTPCode_Tabrget_3XX_Count,HTTPCode_Target_4XX_Count,HTTPCode_Target_5XX_Count,<br>HTTPCode_ELB_4XX_Count,HTTPCode_ELB_5XX_Count,TargetConnectionErrorCount,<br>TargetTLSNegotiationErrorCount,TargetResetCount,ElbAuthError,ElbAuthFailure,ElbAuthLatency<br><b>AWS/ApiGateway:</b>Count,4XXError,5XXError,Latency,IntegrationLatency,CacheHitCount,CacheMissCount</td>
+</tr>
+<tr>
+  <td>--start-time</td>
+  <td>Any valid ISO 8601 or UNIX timestamp Examples: 2025-08-01T00:00:00Z,2025-08-01T12:30:00Z</td>
+</tr>
+<tr>
+   <td>--end-time</td>
+  <td>Same format as --start-time </td>
+</tr>
+<tr>
+   <td>--period</td>
+  <td>Granularity of datapoints in seconds.
+Must be a multiple of 60 (minimum 60). Common values: 60 (1 minute),300 (5 minutes)</td>
+</tr>
+<tr>
+   <td>--statistics</td>
+  <td>One or more of: SampleCount: Number of samples collected<br>Average: The average of values<br>Sum: The total value<br>Minimum: The lowest value<br>Maximum: The highest value</td>
+   </tr>
 </table>
 </div>
-<h4 class="zero6">---statistics is a required parameter in get-metric-statistics. You can provide one or multiple statistics (space-separated) and these statistics apply to a single metric at a time. Common usage:</h4>
-    <div class="codebox">
---statistics Average
---statistics Average Maximum
---statistics Sum Minimum Maximum
-    </div>
-    </div>
-    </div>
 </body>
 </html>

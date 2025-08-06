@@ -141,7 +141,7 @@ body.cloudwatch-page .dropdown {
  width: 100%;
 }
 /*code {
-    color: #c7254e;            
+    color: black;            
     padding: 2px 6px;
     border-radius: 4px;
     font-family: Consolas, monospace;
@@ -196,8 +196,8 @@ background-color: #91f4bc;         /* Light gray background */
 }
 
 .nine {
-  background-color: #91f4bc;         /* Light gray background */
-  border: 2px solid #ccc;            /* Light border for square look */
+  background-color: #91f4bc;       
+  border: 2px solid #ccc;            
   padding: -5px;
   margin-top: -1%;
   margin-bottom: -0.5%;
@@ -222,70 +222,81 @@ background-color: #91f4bc;         /* Light gray background */
 .zero1 {
 line-height: 1;
 }
-.zero2 {
-margin-top: 4px;
-}
+
 /*CW-statistics*/
-.main-content2 {
-   margin-left: 180px;
-    padding: 10px 20px;
-    position: relative;
-    z-index: 1;
-    background-color: #fff;
-    line-height: 1px;
+.cloudwatch-page {
+font-family: 'Open Sans', sans-serif;
+font-size: smaller;
 }
-.zero3{
-  background-color: #e8eeee;
-  border: 1px solid #e4ebeb;
-  font-family: 'Courier New', monospace;
-  color: rgb(0, 0, 0);
-  border-radius: 10px;
-  line-height: 1.4;
-  padding: 15px;
-  font-size: medium;
-  padding-top: -10%;
-  padding-bottom: -10%;
+.zero2 {
+  margin-bottom: -3px;
 }
-.zero4 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 250px;
-  text-decoration: underline;
-}
-.zero5 {
-  margin-top: 0px;
-}
-.zero6 {
+.zero3 {
+  background-color: #e8eeee;         
+  border: 0px solid #e4ebeb;
+  margin-top: 2px;
   margin-left: 200px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.wrapper3 {
-    display: flex;
-    flex-direction: column;
-    margin-left: 210px;
-    margin-right: 100px;
-    margin-bottom: 0px;
-}
-.wrapper4 {
-    display: flex;
-    flex-direction: column;
-    margin-left: 210px;
-    margin-right: 100px;
-    margin-bottom: 10px;
-}
-.codebox{
-  background-color: #e8eeee;         /* Light gray background */
-  border: 0px solid #e4ebeb;            /* Light border for square look */
-  margin-top: 10px;
-  margin-bottom: 5%;
-  margin-left: 200px;
-  margin-right: 20px;
   padding-left: 20px;
-  font-family: 'Courier New', monospace; /* Clear, coder-style font */
-  color: #030202;                    /* Deep red text */
-  white-space: pre-line;             /* Keeps formatting */
+  margin-bottom: 0%;
+  padding-bottom: 0%;
+  font-family: 'Courier New', monospace; 
+  color: #030202;                    
+  white-space: pre-line;             
   border-radius: 15px;
   font-size: medium;
   line-height: 1;
 }
+.zero4 {
+  text-align: center;
+}
+.zero5 {
+  margin-left: 200px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.zero6 {
+  margin-right: 200px;
+}
+.zero7 {
+  margin-left: 200px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.zero8 {
+  margin-left: 200px;
+  width: 100%;
+}
+.zero9 {
+margin-top: 0%;
+margin-bottom: 0%;
+}
+.zero10 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+.zero11 {
+  margin-top: 1px;
+ margin-bottom: 3px;
+ font-weight: bold;
+}
+.zero12 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  table-layout: fixed;
+}
+.zero12 th {
+  width: 1%;
+}
+.wrapper3 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    margin-bottom: 0px;
+}
+
+
+
