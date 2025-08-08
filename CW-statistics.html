@@ -28,12 +28,12 @@
       <p class="seven">The following commands are used to manage monitoring, logging, and alarms in AWS CloudWatch. They help you work with log groups and streams, view and push logs, create and manage metric alarms, and monitor performance metrics of AWS services:</p>
         <h2>a) aws cloudwatch get-metric-statistics</h2>
         <h4 class="one">Command:</h4>
-       <h2 class="two"><code>aws cloudwatch get-Metric Statistics</code></h2>
+       <h2 class="zero22"><code>aws cloudwatch get-Metric Statistics</code></h2>
        <p class="zero1">This command gets past data for a specific metric during a set time period. You have to add  parameters to customize what data you want. Wihtout the parameters the command will the error:</p>
        <h3 class="zero9">Followings are must required Parameters (Must be included):</h3>
       </div>
        <div class="wrapper3">
-  <table border="1">
+  <table border="1" class="zero21">
 <tr>
 <th>Parameters</th>
 <th>Description</th>
@@ -61,7 +61,7 @@
 <tr>
    <td>--statistics</td>
   <td>One or more metric statistics to return (SampleCount, Average, Sum, Minimum, Maximum).
-    You can provide one or multiple statistics (space-separated):<br>--statistics Average<br>--statistics Average Maximum
+    You can provide one or <br>multiple statistics (space-separated):<br>--statistics Average<br>--statistics Average Maximum
 <br>--statistics Sum Minimum Maximum</td>
 </tr>
 </table>
@@ -84,12 +84,12 @@
 <th>Possible Values</th>
 </tr>
 <tr>
-  <td>---namespace</td>
+  <td>--namespace</td>
   <td>AWS/EC2,AWS/S3,AWS/Lambda,AWS/RDS,AWS/DynamoDB,AWS/EBS,AWS/ELB,AWS/ApplicationELB,<br>AWS/ApiGateway, etc</td>
 </tr>
 <tr>
   <td>--metric-name</td>
-  <td><b>For AWS/EC2:</b>CPUUtilization,DiskReadBytes,DiskWriteBytes,DiskReadOps,DiskWriteOps,NetworkIn,NetworkOut,<br>StatusCheckFailed,StatusCheckFailed_Instance,StatusCheckFailed_System<br><b>For AWS/S3:</b>NumberOfObjects,BucketSizeBytes,AllRequests,GetRequests,PutRequests,4xxErrors,5xxError,<br>FirstByteLatency,TotalRequestLatency<br><b>For AWS/Lambda:</b> Invocations,Errors,Duration,Throttles,ConcurrentExecutions,UnreservedConcurrentExecutions<br><b>For AWS/RDS:</b>CPUUtilization,DatabaseConnections,FreeableMemory,FreeStorageSpace,ReadLatency,WriteLatency,<br>ReadIOPS,WriteIOPS<br><b>For AWS/DynamoDB:</b> ConsumedReadCapacityUnits,ConsumedWriteCapacityUnits,ReadThrottleEvents,WriteThrottleEvents,<br>SuccessfulRequestLatency<br><b>For AWS/EBS:</b>VolumeReadBytes, VolumeWriteBytes,VolumeReadOps,VolumeWriteOps,VolumeTotalReadTime,VolumeTotalWriteTime,<br>VolumeIdleTime,VolumeQueueLength,BurstBalance,VolumeThroughputPercentage<br><b>For AWS/ELB:</b>Latency,RequestCount,HealthyHostCount,UnHealthyHostCount,BackendConnectionErrors,SurgeQueueLength,<br>SpilloverCount,HTTPCode_Backend_2XX,HTTPCode_Backend_3XX,HTTPCode_Backend_4XX,HTTPCode_Backend_5XX,<br>HTTPCode_ELB_4XX,HTTPCode_ELB_5XX<br><b>AWS/ApplicationELB:</b>RequestCount,TargetResponseTime,ActiveConnectionCount,NewConnectionCount,RejectedConnectionCount,<br>HTTPCode_Target_2XX_Count,HTTPCode_Tabrget_3XX_Count,HTTPCode_Target_4XX_Count,HTTPCode_Target_5XX_Count,<br>HTTPCode_ELB_4XX_Count,HTTPCode_ELB_5XX_Count,TargetConnectionErrorCount,<br>TargetTLSNegotiationErrorCount,TargetResetCount,ElbAuthError,ElbAuthFailure,ElbAuthLatency<br><b>AWS/ApiGateway:</b>Count,4XXError,5XXError,Latency,IntegrationLatency,CacheHitCount,CacheMissCount</td>
+  <td></td>
 </tr>
 <tr>
   <td>--start-time</td>
@@ -102,7 +102,7 @@
 <tr>
    <td>--period</td>
   <td>Granularity of datapoints in seconds.
-Must be a multiple of 60 (minimum 60). Common values: 60 (1 minute),300 (5 minutes)</td>
+Must be a multiple of 60 (minimum 60). <br>Common values: 60 (1 minute),300 (5 minutes)</td>
 </tr>
 <tr>
    <td>--statistics</td>
@@ -118,13 +118,81 @@ Must be a multiple of 60 (minimum 60). Common values: 60 (1 minute),300 (5 minut
     <th>Description</th>
    </tr>
 <tr>
-  <td>---namespace</td>
-  <td>AWS/EC2,AWS/S3,AWS/Lambda,AWS/RDS,AWS/DynamoDB,AWS/EBS,AWS/ELB,AWS/ApplicationELB,<br>AWS/ApiGateway, etc</td>
+  <td>--unit</td>
+  <td><p class="zero14">It filters results by metric unit type.</p><br><span>none</span>,<span>Count</span>,<span>Count/Second</span>,<span>Percent</span>,<span>Bits</span>,<span>Bytes(Kilobytes,Megabytes...)</span>,<span>Bits/second(Bytes/seconds,Megabytes/seconds...)</span></td>
 </tr>
 <tr>
-  <td>--metric-name</td>
-  <td><b>For AWS/EC2:</b>CPUUtilization,DiskReadBytes,DiskWriteBytes,DiskReadOps,DiskWriteOps,NetworkIn,NetworkOut,<br>StatusCheckFailed,StatusCheckFailed_Instance,StatusCheckFailed_System<br><b>For AWS/S3:</b>NumberOfObjects,BucketSizeBytes,AllRequests,GetRequests,PutRequests,4xxErrors,5xxError,<br>FirstByteLatency,TotalRequestLatency<br><b>For AWS/Lambda:</b> Invocations,Errors,Duration,Throttles,ConcurrentExecutions,UnreservedConcurrentExecutions<br><b>For AWS/RDS:</b>CPUUtilization,DatabaseConnections,FreeableMemory,FreeStorageSpace,ReadLatency,WriteLatency,<br>ReadIOPS,WriteIOPS<br><b>For AWS/DynamoDB:</b> ConsumedReadCapacityUnits,ConsumedWriteCapacityUnits,ReadThrottleEvents,WriteThrottleEvents,<br>SuccessfulRequestLatency<br><b>For AWS/EBS:</b>VolumeReadBytes, VolumeWriteBytes,VolumeReadOps,VolumeWriteOps,VolumeTotalReadTime,VolumeTotalWriteTime,<br>VolumeIdleTime,VolumeQueueLength,BurstBalance,VolumeThroughputPercentage<br><b>For AWS/ELB:</b>Latency,RequestCount,HealthyHostCount,UnHealthyHostCount,BackendConnectionErrors,SurgeQueueLength,<br>SpilloverCount,HTTPCode_Backend_2XX,HTTPCode_Backend_3XX,HTTPCode_Backend_4XX,HTTPCode_Backend_5XX,<br>HTTPCode_ELB_4XX,HTTPCode_ELB_5XX<br><b>AWS/ApplicationELB:</b>RequestCount,TargetResponseTime,ActiveConnectionCount,NewConnectionCount,RejectedConnectionCount,<br>HTTPCode_Target_2XX_Count,HTTPCode_Tabrget_3XX_Count,HTTPCode_Target_4XX_Count,HTTPCode_Target_5XX_Count,<br>HTTPCode_ELB_4XX_Count,HTTPCode_ELB_5XX_Count,TargetConnectionErrorCount,<br>TargetTLSNegotiationErrorCount,TargetResetCount,ElbAuthError,ElbAuthFailure,ElbAuthLatency<br><b>AWS/ApiGateway:</b>Count,4XXError,5XXError,Latency,IntegrationLatency,CacheHitCount,CacheMissCount</td>
+  <td>--dimensions</td>
+  <td><div class="zero15"><h4 class="zero16">General Format:</h4>
+    <br><p class="zero19">--dimensions Name=DimensionName,Value=DimensionValue</p></div>
+    <div class="zero15"><h4 class="zero16">Multiple dimensions:</h4>
+    <br><p class="zero19">--dimensions Name=Dimension1,Value=Val1 Name=Dimension2,Value=Val2</p></div>
+     <div class="zero15"><h4 class="zero16">EC2 (Amazon Elastic Compute Cloud):</h4>
+    <br><p class="zero19">--dimensions Name=InstanceId,Value=i-xxxxxxxxxxxxxxxxx</p></div>
+    <div class="zero15"><h4 class="zero16">EBS (Elastic Block Store):</h4>
+    <br><p class="zero19">--dimensions Name=VolumeId,Value=vol-xxxxxxxxxxxxxxxxx</p></div>
+  <div class="zero23"><h4 class="zero16">ELB (Classic Load Balancer):</h4>
+    <br><p class="zero19">--dimensions Name=LoadBalancerName,Value=my-load-balancer</p></div>
+  <div class="zero20"><h4 class="zero21"> ALB / NLB (Application or Network Load Balancer):</h4>
+    <br><p class="zero22">--dimensions Name=LoadBalancer,Value=app/my-loadbalancer/50dc6c495c0c9188</p>
+  <br><p class="zero24">--dimensions Name=TargetGroup,Value=targetgroup/my-targets/73e2d6bc24d8a067</p>
+<br><p class="zero25">--dimensions Name=AvailabilityZone,Value=us-west-2a</p></div>
+<div class="zero26"><h4 class="zero27">RDS (Relational Database Service):</h4>
+    <br><p class="zero28">--dimensions Name=DBInstanceIdentifier,Value=mydbinstance</p></div>
+  <div class="zero29"><h4 class="zero30"> Lambda:</h4>
+    <br><p class="zero31">--dimensions Name=FunctionName,Value=my-function</p>
+  <br><p class="zero32">--dimensions Name=Resource,Value=my-function:alias</p></div>
+  <div class="zero33"><h4 class="zero34">S3 (Amazon Simple Storage Service)</h4>
+    <br><p class="zero35">--dimensions Name=BucketName,Value=my-bucket Name=StorageType,Value=StandardStorage</p></div>
+   <div class="zero36"><h4 class="zero37">DynamoDB</h4>
+    <br><p class="zero38">--dimensions Name=TableName,Value=my-table</p></div>
+  <div class="zero39"><h4 class="zero40">Auto Scaling Group</h4>
+    <br><p class="zero41">--dimensions Name=AutoScalingGroupName,Value=my-asg</p></div>
+</div>
+<div class="zero42"><h4 class="zero43">API Gateway</h4>
+    <br><p class="zero44">--dimensions Name=ApiName,Value=my-api</p></div>
+  <div class="zero45"><h4 class="zero46">ECS (Elastic Container Service):</h4>
+    <br><p class="zero47">--dimensions Name=ClusterName,Value=my-cluster Name=ServiceName,Value=my-service</p>
+    </div>
+  <div class="zero48">
+    <table class="zero49">
+<tr class="zero50">
+    <th>Service</th>
+    <th>Dimension Name(s)<br>(Name)</th>
+    <th>Value</th>
 </tr>
+<tr>
+  <td>EC2</td>
+  <td>InstanceId</td>
+  <td>i-xxxxxxxxx</td>
+</tr>
+<tr>
+  <td>EBS</td>
+  <td>VolumeId</td>
+  <td>vol-xxxxxxxxxx</td>
+</tr>
+<tr>
+  <td>ELB (Classic)</td>
+  <td>LoadBalancerName</td>
+  <td>Name of LoadBalancer</td>
+</tr>
+<tr >
+  <td rowspan="3" class="zero51">ALB/NLB</td>
+  <td>LoadBalancer</td>
+  <td>app/my-loadbalancer/50dc6c495c0c9188</td>
+</tr>
+<tr>
+  <td>TargetGroup</td>
+  <td>targetgroup/my-targets/73e2d6bc24d8a067</td>
+</tr>
+<tr>
+  <td>AvailabilityZone</td>
+  <td>us-west-2a</td>
+</tr>
+    </table>
+  </div>
+  </td>
+  </tr>
 <tr>
   <td>--start-time</td>
   <td>Any valid ISO 8601 or UNIX timestamp Examples: 2025-08-01T00:00:00Z,2025-08-01T12:30:00Z</td>
