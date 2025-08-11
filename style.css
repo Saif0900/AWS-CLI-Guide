@@ -231,7 +231,7 @@ width: 100%;
 max-width: 100%;
 margin: 0 auto;
 margin-left: 0px;
-margin-right: 0px
+margin-right: 0px;
 box-sizing: border-box;
 }
 
@@ -379,7 +379,7 @@ margin-left: 5px;
   margin-bottom: 0px;
 }
 .zero22 {
- margin-top: 1px;
+ margin-top: -16px;
  margin-left: 3px;
 }
 .zero23 {
