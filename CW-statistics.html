@@ -6,6 +6,7 @@
     <title>CloudWatch</title>
     <link rel="stylesheet" href="style.css">
 </head>
+ <div class="container">
 <body class="cloudwatch-page">
     <div class="sidebar">
         <h3>Menu</h3>
@@ -23,16 +24,15 @@
       </div>
 </nav>
     </div>
-    <div class="wrapper">
-    <div class="main-content">
-      <p class="seven">The following commands are used to manage monitoring, logging, and alarms in AWS CloudWatch. They help you work with log groups and streams, view and push logs, create and manage metric alarms, and monitor performance metrics of AWS services:</p>
-        <h2>a) aws cloudwatch get-metric-statistics</h2>
-        <h4 class="one">Command:</h4>
-       <h2 class="zero22"><code>aws cloudwatch get-Metric Statistics</code></h2>
+    <div class="zero54">
+      <p class="zero55">The following commands are used to manage monitoring, logging, and alarms in AWS CloudWatch. They help you work with log groups and streams, view and push logs, create and manage metric alarms, and monitor performance metrics of AWS services:</p>
+        <h2 class="zero56">a) aws cloudwatch Metric Statistic</h2>
+        <h4 class="zero57">Command:</h4>
+       <div class="zero58"><h2 class="zero22">aws cloudwatch get-metric-statistics</h2></div>
        <p class="zero1">This command gets past data for a specific metric during a set time period. You have to add  parameters to customize what data you want. Wihtout the parameters the command will the error:</p>
-       <h3 class="zero9">Followings are must required Parameters (Must be included):</h3>
+       <h4 class="zero9">Followings are must required Parameters (Must be included):</h4>
       </div>
-       <div class="wrapper3">
+       <div class="zero59">
   <table border="1" class="zero21">
 <tr>
 <th>Parameters</th>
@@ -112,18 +112,19 @@ Must be a multiple of 60 (minimum 60). <br>Common values: 60 (1 minute),300 (5 m
    </div>
    <h3 class="zero4">Optional Parmeters</h3>
    <div class="zero6">
-    <table border="1" class="zero8">
+    <table border="1" class="zero60">
    <tr>
     <th>Parmeters</th>
     <th>Description</th>
    </tr>
 <tr>
   <td>--unit</td>
-  <td><p class="zero14">It filters results by metric unit type.</p><br><span>none</span>,<span>Count</span>,<span>Count/Second</span>,<span>Percent</span>,<span>Bits</span>,<span>Bytes(Kilobytes,Megabytes...)</span>,<span>Bits/second(Bytes/seconds,Megabytes/seconds...)</span></td>
+  <td><p class="zero14">It filters results by metric unit type:</p><br><span>none</span>,<span>Count</span>,<span>Count/Second</span>,<span>Percent</span>,<span>Bits</span>,<span>Bytes(Kilobytes,Megabytes...)</span>,<span>Bits/second(Bytes/seconds,Megabytes/seconds...)</span></td>
 </tr>
 <tr>
   <td>--dimensions</td>
-  <td><div class="zero15"><h4 class="zero16">General Format:</h4>
+<td><div class="zero61">
+  <div class="zero15"><h4 class="zero16">General Format:</h4>
     <br><p class="zero19">--dimensions Name=DimensionName,Value=DimensionValue</p></div>
     <div class="zero15"><h4 class="zero16">Multiple dimensions:</h4>
     <br><p class="zero19">--dimensions Name=Dimension1,Value=Val1 Name=Dimension2,Value=Val2</p></div>
@@ -148,15 +149,14 @@ Must be a multiple of 60 (minimum 60). <br>Common values: 60 (1 minute),300 (5 m
     <br><p class="zero38">--dimensions Name=TableName,Value=my-table</p></div>
   <div class="zero39"><h4 class="zero40">Auto Scaling Group</h4>
     <br><p class="zero41">--dimensions Name=AutoScalingGroupName,Value=my-asg</p></div>
-</div>
 <div class="zero42"><h4 class="zero43">API Gateway</h4>
     <br><p class="zero44">--dimensions Name=ApiName,Value=my-api</p></div>
   <div class="zero45"><h4 class="zero46">ECS (Elastic Container Service):</h4>
     <br><p class="zero47">--dimensions Name=ClusterName,Value=my-cluster Name=ServiceName,Value=my-service</p>
-    </div>
+    </div></div>
   <div class="zero48">
     <table class="zero49">
-<tr class="zero50">
+<tr>
     <th>Service</th>
     <th>Dimension Name(s)<br>(Name)</th>
     <th>Value</th>
@@ -189,28 +189,90 @@ Must be a multiple of 60 (minimum 60). <br>Common values: 60 (1 minute),300 (5 m
   <td>AvailabilityZone</td>
   <td>us-west-2a</td>
 </tr>
+<tr>
+  <td>RDS</td>
+  <td>DBInstanceIdentifier</td>
+  <td>mydbinstance</td>
+</tr>
+<tr>
+  <td rowspan="2" class="zero52">Lambda</td>
+  <td>FunctionName</td>
+  <td>my-function</td>
+</tr>
+<tr>
+  <td>Resource</td>
+  <td>my-function:alias</td>
+</tr>
+<tr>
+  <td>S3</td>
+  <td>BucketName, StorageType</td>
+  <td>my-bucket, StandardStorage</td>
+</tr>
+<tr>
+  <td>DynamoDB</td>
+  <td>TableName</td>
+  <td>my-table</td>
+</tr>
+<tr>
+  <td>Auto Scaling</td>
+  <td>AutoScalingGroupName</td>
+  <td>my-auto-scaling-group</td>
+</tr>
+<tr>
+  <td>API Gateway</td>
+  <td>ApiName</td>
+  <td>my-api</td>
+</tr>
+<tr>
+  <td>ECS</td>
+  <td>ClusterName, ServiceName</td>
+  <td>my-cluster, my-service</td>
+</tr>
+<tr>
+  <td>SNS</td>
+  <td>TopicName</td>
+  <td>my-topic</td>
+</tr>
+<tr>
+  <td>SQS</td>
+  <td>QueueName</td>
+  <td>my-queue</td>
+</tr>
+<tr>
+  <td>CloudFront</td>
+  <td>DistributionId, Region</td>
+  <td>E123456ABCDEF, Global</td>
+</tr>
+<tr>
+  <td>ElastiCache (Redis)</td>
+  <td>CacheClusterId, CacheNodeId, ReplicationGroupId</td>
+  <td>my-cluster, 0001, my-replication-group</td>
+</tr>
+<tr>
+  <td>Kinesis</td>
+  <td>StreamName, ShardId</td>
+  <td>my-stream, shardId-000000000000</td>
+</tr>
+<tr>
+  <td>Step Functions</td>
+  <td>StateMachineArn</td>
+  <td>arn:aws:states:region:account:stateMachine:my-machine</td>
+</tr>
     </table>
   </div>
   </td>
   </tr>
 <tr>
-  <td>--start-time</td>
-  <td>Any valid ISO 8601 or UNIX timestamp Examples: 2025-08-01T00:00:00Z,2025-08-01T12:30:00Z</td>
+  <td>--region</td>
+  <td>Specifies the AWS region to send the request to: us-east-1, us-west-2, ap-south-1, etc.</td>
 </tr>
 <tr>
-   <td>--end-time</td>
-  <td>Same format as --start-time </td>
+   <td>--generate-cli-skeleton</td>
+  <td>It creates a JSON template (skeleton) that contains all the parameters a command accepts.
+You can fill in this skeleton and then use it laterwith --cli-input-json.</td>
 </tr>
-<tr>
-   <td>--period</td>
-  <td>Granularity of datapoints in seconds.
-Must be a multiple of 60 (minimum 60). Common values: 60 (1 minute),300 (5 minutes)</td>
-</tr>
-<tr>
-   <td>--statistics</td>
-  <td>One or more of: SampleCount: Number of samples collected<br>Average: The average of values<br>Sum: The total value<br>Minimum: The lowest value<br>Maximum: The highest value</td>
-   </tr>
 </table>
+</div>
 </div>
 </body>
 </html>
