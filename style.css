@@ -1,7 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+    font-style: normal;
     display: flex;
     height: 100%;
     overflow-x: hidden;
@@ -65,26 +67,26 @@ body {
     margin-right: 100px;
 }
 .wrapper3 .main-content{
-  font-style: italic;
-  font-size: smaller;
+  font-style: normal;
+  font-size: medium;
 }
 /*Main Content*/
 .EC2 .main-content {
      background-color: #eaf2f8;
-    font-style: italic;
-    font-size: smaller;
+    font-style: normal;
+    font-size: medium;
     
 }
 .s3 .main-content {
      background-color: #eaf2f8;
-    font-style: italic;
-    font-size: smaller;
+    font-style: normal;
+    font-size: medium;
     
 }
 .IAM .main-content {
      background-color: #eaf2f8;
-    font-style: italic;
-    font-size: smaller;
+    font-style: normal;
+    font-size: small;
     display: flex;
 }
 
@@ -157,7 +159,7 @@ background-color: #91f4bc;         /* Light gray background */
   padding: 8px;
   margin-top: -1%;
   margin-bottom: -0.5%;
-  font-family: 'Courier New', monospace; /* Clear, coder-style font */
+  font-family: 'Roboto', sans-serif; /* Clear, coder-style font */
   color: #b30000;                    /* Deep red text */
   white-space: pre-line;             /* Keeps formatting */
   border-radius: 2px;
@@ -179,7 +181,7 @@ background-color: #91f4bc;         /* Light gray background */
      display: flex;
      flex-direction: column;
      width: 83%;
-     font-size: smaller;
+     font-size: small;
 } 
 
 .eight {
@@ -204,7 +206,7 @@ background-color: #91f4bc;         /* Light gray background */
   color: #b30000;                    /* Deep red text */
   white-space: pre-line;             /* Keeps formatting */
   border-radius: 2px;
-  font-size: medium;
+  font-size: small;
 }
 .ten {
   background-color: #91f4bc;         /* Light gray background */
@@ -216,16 +218,20 @@ background-color: #91f4bc;         /* Light gray background */
   color: #b30000;                    /* Deep red text */
   white-space: pre-line;             /* Keeps formatting */
   border-radius: 2px;
-  font-size: smaller;
+  font-size: small;
 }
 .zero1 {
 line-height: 1;
 }
-
+/*for cloud watch menu */
+.cloudwatch-page {
+  font-style: normal;
+}
 /*CW-statistics*/
 .container {
-font-style: italic;
-font-size: smaller;
+font-style: normal;
+font-size: small;
+font-family: 'Roboto', sans-serif;
 height: 100%;
 width: 100%;
 max-width: 100%;
@@ -254,11 +260,11 @@ width: 100%;
   padding-left: 20px;
   margin-bottom: 0%;
   padding-bottom: 0%;
-  font-family: 'Courier New', monospace; 
+  font-family: 'Roboto', sans-serif;
   color: #030202;                    
   white-space: pre-line;             
   border-radius: 15px;
-  font-size: medium;
+  font-size: small;
   line-height: 1;
   height: 105px;
   width: calc(100%-200px);
