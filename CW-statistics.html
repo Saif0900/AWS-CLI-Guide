@@ -6,10 +6,8 @@
     <title>CloudWatch</title>
     <link rel="stylesheet" href="style.css">
 </head>
- <div class="container">
 <body class="cloudwatch-page">
     <div class="sidebar">
-        <h3>Menu</h3>
 <nav>
     <a href="index.html">Pre-defined Commands</a>
     <a href="IAM.html">IAM</a>
@@ -22,13 +20,15 @@
         <a href="CW-metrics.html">Metrics</a>
         <a href="CW-statistics.html">Metric Statistics</a>
       </div>
+    </div>
 </nav>
     </div>
-    <div class="zero54">
-      <p class="zero55">The following commands are used to manage monitoring, logging, and alarms in AWS CloudWatch. They help you work with log groups and streams, view and push logs, create and manage metric alarms, and monitor performance metrics of AWS services:</p>
-        <h2 class="zero56">a) aws cloudwatch Metric Statistic</h2>
-        <h4 class="zero57">Command:</h4>
-       <div class="zero58"><h2 class="zero62">aws cloudwatch get-metric-statistics</h2></div>
+    <div class="zero00"> 
+       <div class="zero58">
+        <p class="zero63">The following commands show how to get CloudWatch statistics. They provide performance data and metrics for your AWS resources over a chosen time period:</p>
+        <h3 class="zero65">Get Metric Statistics</h3>
+        <h4 class="zero64">Command:</h4>
+        <h3 class="zero62">aws cloudwatch get-metric-statistics</h3>
        <p class="zero1">This command gets past data for a specific metric during a set time period. You have to add  parameters to customize what data you want. Wihtout the parameters the command will the error:</p>
        <h4 class="zero9">Followings are must required Parameters (Must be included):</h4>
       </div>
@@ -67,13 +67,13 @@
 </table>
 </div>
       <h4 class="zero5">The following example command include the essential parameters mentioned above:</h4>
-       <div class="zero3"><pre class="zero2">aws cloudwatch get-metric-statistics \
+       <div class="zero3"><code class="zero2">aws cloudwatch get-metric-statistics \
    --namespace AWS/EC2 \
    --metric-name CPUUtilization \
    --start-time 2025-08-01T00:00:00Z \
    --end-time 2025-08-02T00:00:00Z \
    --period 300 \
-   --statistics Average</pre>
+   --statistics Average</code>
    </div>
   <p class="zero7"> This command fetches average CPU utilization for EC2 instances over a 1-day period, using 5-minute data points (300 seconds).</p>
   <div class="zero10">
@@ -119,40 +119,40 @@ Must be a multiple of 60 (minimum 60). <br>Common values: 60 (1 minute),300 (5 m
    </tr>
 <tr>
   <td>--unit</td>
-  <td><p class="zero14">It filters results by metric unit type:</p><br><span>none</span>,<span>Count</span>,<span>Count/Second</span>,<span>Percent</span>,<span>Bits</span>,<span>Bytes(Kilobytes,Megabytes...)</span>,<span>Bits/second(Bytes/seconds,Megabytes/seconds...)</span></td>
+  <td><p class="zero14">It filters results by metric unit type:</p><br>none,Count,Count/Second,Percent,Bits,Bytes(Kilobytes,Megabytes...),Bits/second(Bytes/seconds,Megabytes/seconds...)</td>
 </tr>
 <tr>
   <td>--dimensions</td>
 <td><div class="zero61">
   <div class="zero15"><h4 class="zero16">General Format:</h4>
-    <br><p class="zero19">--dimensions Name=DimensionName,Value=DimensionValue</p></div>
-    <div class="zero15"><h4 class="zero16">Multiple dimensions:</h4>
-    <br><p class="zero19">--dimensions Name=Dimension1,Value=Val1 Name=Dimension2,Value=Val2</p></div>
-     <div class="zero15"><h4 class="zero16">EC2 (Amazon Elastic Compute Cloud):</h4>
-    <br><p class="zero19">--dimensions Name=InstanceId,Value=i-xxxxxxxxxxxxxxxxx</p></div>
-    <div class="zero15"><h4 class="zero16">EBS (Elastic Block Store):</h4>
-    <br><p class="zero19">--dimensions Name=VolumeId,Value=vol-xxxxxxxxxxxxxxxxx</p></div>
-  <div class="zero23"><h4 class="zero16">ELB (Classic Load Balancer):</h4>
-    <br><p class="zero19">--dimensions Name=LoadBalancerName,Value=my-load-balancer</p></div>
+    <p class="zero19">--dimensions Name=DimensionName,Value=DimensionValue</p></div>
+    <div class="zero66"><h4 class="zero67">Multiple dimensions:</h4>
+    <p class="zero68">--dimensions Name=Dimension1,Value=Val1 Name=Dimension2,Value=Val2</p></div>
+     <div class="zero69"><h4 class="zero70">EC2 (Amazon Elastic Compute Cloud):</h4>
+    <p class="zero71">--dimensions Name=InstanceId,Value=i-xxxxxxxxxxxxxxxxx</p></div>
+    <div class="zero72"><h4 class="zero73">EBS (Elastic Block Store):</h4>
+    <p class="zero74">--dimensions Name=VolumeId,Value=vol-xxxxxxxxxxxxxxxxx</p></div>
+  <div class="zero23"><h4 class="zero75">ELB (Classic Load Balancer):</h4>
+    <p class="zero76">--dimensions Name=LoadBalancerName,Value=my-load-balancer</p></div>
   <div class="zero20"><h4 class="zero21"> ALB / NLB (Application or Network Load Balancer):</h4>
-    <br><p class="zero22">--dimensions Name=LoadBalancer,Value=app/my-loadbalancer/50dc6c495c0c9188</p>
-  <br><p class="zero24">--dimensions Name=TargetGroup,Value=targetgroup/my-targets/73e2d6bc24d8a067</p>
-<br><p class="zero25">--dimensions Name=AvailabilityZone,Value=us-west-2a</p></div>
+    <p class="zero22">--dimensions Name=LoadBalancer,Value=app/my-loadbalancer/50dc6c495c0c9188</p>
+   <p class="zero24">--dimensions Name=TargetGroup,Value=targetgroup/my-targets/73e2d6bc24d8a067</p>
+<p class="zero25">--dimensions Name=AvailabilityZone,Value=us-west-2a</p></div>
 <div class="zero26"><h4 class="zero27">RDS (Relational Database Service):</h4>
-    <br><p class="zero28">--dimensions Name=DBInstanceIdentifier,Value=mydbinstance</p></div>
+    <p class="zero28">--dimensions Name=DBInstanceIdentifier,Value=mydbinstance</p></div>
   <div class="zero29"><h4 class="zero30"> Lambda:</h4>
-    <br><p class="zero31">--dimensions Name=FunctionName,Value=my-function</p>
-  <br><p class="zero32">--dimensions Name=Resource,Value=my-function:alias</p></div>
+    <p class="zero31">--dimensions Name=FunctionName,Value=my-function</p>
+  <p class="zero32">--dimensions Name=Resource,Value=my-function:alias</p></div>
   <div class="zero33"><h4 class="zero34">S3 (Amazon Simple Storage Service)</h4>
-    <br><p class="zero35">--dimensions Name=BucketName,Value=my-bucket Name=StorageType,Value=StandardStorage</p></div>
+    <p class="zero35">--dimensions Name=BucketName,Value=my-bucket Name=StorageType,Value=StandardStorage</p></div>
    <div class="zero36"><h4 class="zero37">DynamoDB</h4>
-    <br><p class="zero38">--dimensions Name=TableName,Value=my-table</p></div>
+    <p class="zero38">--dimensions Name=TableName,Value=my-table</p></div>
   <div class="zero39"><h4 class="zero40">Auto Scaling Group</h4>
-    <br><p class="zero41">--dimensions Name=AutoScalingGroupName,Value=my-asg</p></div>
+    <p class="zero41">--dimensions Name=AutoScalingGroupName,Value=my-asg</p></div>
 <div class="zero42"><h4 class="zero43">API Gateway</h4>
-    <br><p class="zero44">--dimensions Name=ApiName,Value=my-api</p></div>
+    <p class="zero44">--dimensions Name=ApiName,Value=my-api</p></div>
   <div class="zero45"><h4 class="zero46">ECS (Elastic Container Service):</h4>
-    <br><p class="zero47">--dimensions Name=ClusterName,Value=my-cluster Name=ServiceName,Value=my-service</p>
+    <p class="zero47">--dimensions Name=ClusterName,Value=my-cluster Name=ServiceName,Value=my-service</p>
     </div></div>
   <div class="zero48">
     <table class="zero49">
