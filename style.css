@@ -992,6 +992,7 @@ margin-top: 0px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  margin-left: 8%;
 }
 .mobile {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; 
