@@ -9,6 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow-x: auto;
 }
 .sidebar {
     width: 100px;
@@ -985,6 +986,50 @@ margin-top: 0px;
   height: 45px;
   padding-left: 3px; 
 }
+/*CW-metrics for mobile*/
+.mobile,
+.mobile * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.mobile {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; 
+  font-size: 16px;    
+  line-height: 1.6;     
+}
+.mobile img,
+.mobile video,
+.mobile iframe {
+  max-width: 100%;  
+  height: auto;      
+  display: block;    
+}
+.mobile h1 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+.mobile h2 {
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+.mobile h3 {
+  font-size: 1.2rem; 
+  line-height: 1.4;
+}
+/*CW-metrics for the laptop screen*/
+@media (min-width: 768px) {
+ .mobile {
+  height: 100%;
+  padding: 0%;
+  margin: 0%;
+  padding-left: 8%;
+   font-family: 'Roboto', sans-serif;
+   font-size: small;
+   font-style: normal;
+}
+}
+
 /*CW-statistics*/
 .zero00 {
  margin-left: 105px;
