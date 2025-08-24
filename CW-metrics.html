@@ -14,7 +14,7 @@
     <a href="EC2.html">EC2</a>
     <a href="s3.html">s3</a>
     <div class="cloudwatch-menu">
-      <a href="CloudWatch.html" class="dropdown-label">CloudWatch ▼</a>
+      <a href="CloudWatch.html" class="dropdown-label">CloudWatch Parameters▼</a>
       <div class="dropdown">
         <a href="CW-logs.html">Logs</a>
         <a href="CW-metrics.html">Metrics</a>
@@ -25,7 +25,29 @@
     <div class="mobile">
   <div class="m01">
   <h3>What is cloudwatch metric:</h3>
-  <p>CloudWatch  shows how your AWS resources are working. For example, they can tell you how busy your CPU is, how much network traffic is flowing, or how much disk space is being used. Metrics are recorded over time so you can see changes and trends. Before you set up alarms or dashboards in CloudWatch, it’s useful to know which metrics are available in your account.
+  <p>CloudWatch  shows how your AWS resources are working. For example, they can tell you how busy your CPU is, how much network traffic is flowing, or how much disk space is being used. Metrics are recorded over time so you can see changes and trends. Before you set up alarms or dashboards in CloudWatch, it’s useful to know which metrics are available in your account.</p>
+  <p>The following commands are used to work with metrics in CloudWatch. They help you list, view, and understand the metrics that are available for your AWS resources. These commands do not create or change anything; they are mainly for checking which metrics exist and getting details about them.</p>
+<h3>Metrics lists:</h3>
+  <h4>Command:</h4>
+  <div class="m02">
+<h3>aws cloudwatch list-metrics</h3>     
+ </div>
+<p>This lists all available metrics in your AWS account. You can use it to discover which metrics exist for your resources.</p>
+<h4>Following keyparameters can be added as extension in the above commands:</h4>
+<table border="1" class="m03">
+<tr>
+<th>Required Parameter</th>
+<th>Possible Values</th>
+</tr>
+<tr>
+  <td>--namespace</td>
+  <td>AWS/EC2,AWS/S3,AWS/Lambda,AWS/RDS,AWS/DynamoDB,AWS/EBS,AWS/ELB,AWS/ApplicationELB,<br>AWS/ApiGateway, etc</td>
+</tr>
+<tr>
+  <td>--metric-name</td>
+  <td>CPUUtilization,NumberOfObjects,Invocations...etc</td>
+</tr>
+  </table>
   </div>
   </div>
 </body>
