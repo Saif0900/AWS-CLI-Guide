@@ -23,15 +23,115 @@
     </div>
 </nav>
     </div>
-    <div id="watch1">
-    <h5> Below are the essential CloudWatch features and their parameters, along with possible values. These define how monitoring data is collected, analyzed, and acted upon: </h5>
-    <table></table>
-
-
-
-
-
-
+    <div class="watch1">
+    <h4> Below are the essential CloudWatch features and their parameters, along with possible values. These define how monitoring data is collected, analyzed, and acted upon:</h4>
+   <div class="watch2">
+    <table border="1">
+      <tr>
+        <th>Parameters</th>
+        <th>Possible Values</th>
+      </tr>
+      <tr>
+        <td>--namespace</td>
+        <td>AWS/EC2, AWS/Lambda, AWS/RDS, AWS/S3, AWS/ECS, AWS/EKS, AWS/DynamoDB, AWS/ApiGateway, AWS/CloudFront, AWS/ElasticBeanstalk, AWS/ElastiCache, AWS/SNS, AWS/SQS, AWS/Logs, AWS/States, AWS/Kinesis, AWS/Redshift, AWS/NetworkELB, AWS/ApplicationELB, AWS/TransitGateway, AWS/WAFV2</td>
+      </tr>
+      <tr>
+        <td>--metric-name</td>
+        <td>
+          <div class="watch3">
+          <table border="1">
+            <tr>
+            <th>Name Space</th>
+            <th>Common Metric Names</th>
+            </tr>
+            <tr>
+            <td>EC2<br>(AWS/EC2)</td>
+            <td>CPUUtilization, DiskReadOps, DiskWriteOps, DiskReadBytes, DiskWriteBytes, NetworkIn, NetworkOut, NetworkPacketsIn, NetworkPacketsOut, StatusCheckFailed, StatusCheckFailed_Instance, StatusCheckFailed_System</td>
+            </tr>
+            <tr>
+            <td>RDS<br>(AWS/RDS)</td>
+            <td>CPUUtilization, DatabaseConnections, FreeableMemory, FreeStorageSpace, ReadIOPS, WriteIOPS, ReadLatency, WriteLatency, ReadThroughput, WriteThroughput, BurstBalance</td>
+            </tr>
+             <tr>
+            <td>Lambda<br>(AWS/Lambda)</td>
+            <td>Invocations, Errors, Duration, Throttles, ConcurrentExecutions, DeadLetterErrors, IteratorAge, ProvisionedConcurrencyInvocations, ProvisionedConcurrencyUtilization</td>
+            </tr>
+            <tr>
+            <td>LambdaInsights<br>(AWS/LambdaInsights)</td>
+            <td>cpu_total_time, init_duration, memory_utilization, rx_bytes, tx_bytes, tmp_used, total_memory, total_network, used_memory_max</td>
+            </tr>
+            <tr>
+            <td>S3<br>(AWS/S3)</td>
+            <td>BucketSizeBytes, NumberOfObjects, AllRequests, GetRequests, PutRequests, DeleteRequests, HeadRequests, 4xxErrors, 5xxErrors, FirstByteLatency, TotalRequestLatency</td>
+            </tr>
+            <tr>
+            <td>ALB<br>(AWS/ApplicationELB):</td>
+            <td>RequestCount, HTTPCode_Target_2XX_Count, HTTPCode_Target_3XX_Count, HTTPCode_Target_4XX_Count, HTTPCode_Target_5XX_Count, HTTPCode_ELB_4XX_Count, HTTPCode_ELB_5XX_Count, TargetResponseTime, ActiveConnectionCount, NewConnectionCount, RejectedConnectionCount</td>
+            </tr>
+            <tr>
+            <td>NLB<br>(AWS/NetworkELB)</td>
+            <td>ActiveFlowCount, ProcessedBytes, TCP_Client_Reset_Count, TCP_Target_Reset_Count, HealthyHostCount, UnHealthyHostCount</td>
+            </tr>
+            <tr>
+            <td>ECS/EKS<br>(AWS/ECS)</td>
+            <td>CPUUtilization, MemoryUtilization, CPUReservation, MemoryReservation, RunningTaskCount, PendingTaskCount</td>
+            </tr>
+            <tr>
+            <td>API Gateway<br>(AWS/ApiGateway)</td>
+            <td>CCount (Total API requests), Latency, IntegrationLatency, 4XXError, 5XXError, CacheHitCount</td>
+            </tr>
+            <tr>
+            <td>SQS<br>(AWS/SQS)</td>
+            <td>NumberOfMessagesSent, NumberOfMessagesReceived, NumberOfMessagesDeleted, NumberOfEmptyReceives, ApproximateNumberOfMessagesVisible, ApproximateNumberOfMessagesNotVisible, ApproximateAgeOfOldestMessage</td>
+            </tr>
+            <tr>
+            <td>SNS<br>(AWS/SNS)</td>
+            <td>NumberOfMessagesPublished, NumberOfNotificationsDelivered, NumberOfNotificationsFailed, NumberOfNotificationsFilteredOut, NumberOfNotificationsFilteredOut-NoMessageAttributes, NumberOfNotificationsFilteredOut-InvalidMessageAttributes, PublishSize, SMSSuccessRate</td>
+            </tr>
+            <tr>
+            <td>Kinesis<br>(AWS/Kinesis)</td>
+            <td>GetRecords.Bytes, GetRecords.IteratorAgeMilliseconds, GetRecords.Latency, GetRecords.Records, GetRecords.Success, IncomingBytes, IncomingRecords, PutRecord.Bytes, PutRecord.Latency, PutRecord.Success, PutRecords.Bytes, PutRecords.Latency, PutRecords.Records, PutRecords.Success, ReadProvisionedThroughputExceeded, WriteProvisionedThroughputExceeded</td>
+            </tr>
+            <tr>
+            <td>ElastiCache<br>(AWS/ElastiCache)</td>
+            <td><b>Redis</b>–CPUUtilization, EngineCPUUtilization, CacheHits, CacheMisses, CurrConnections, NetworkBytesIn, NetworkBytesOut, NewConnections, Evictions, DatabaseMemoryUsagePercentage, ReplicationLag<br><b>Memcached</b>–CPUUtilization, CurrConnections, NetworkBytesIn, NetworkBytesOut, GetHits, GetMisses, CurrItems, Evictions, CasBadval, CasHits, CasMisses, FreeableMemory</td>
+            </tr>
+            <tr>
+            <td>DynamoDB<br>(AWS/DynamoDB)</td>
+            <td>SystemErrors, UserErrors, ConsumedReadCapacityUnits, ConsumedWriteCapacityUnits, ReadThrottleEvents, WriteThrottleEvents, TimeToLiveDeletedItemCount, ConditionalCheckFailedRequests, TransactionConflict, ReturnedRecordsCount, PendingReplicationCount, ReplicationLatency, ItemCount</td>
+            </tr>
+            </tr>
+            <tr>
+            <td>CloudFront<br>(AWS/CloudFront)</td>
+            <td>4xxErrorRate, 401ErrorRate, 403ErrorRate, 404ErrorRate, 5xxErrorRate, 502ErrorRate, 503ErrorRate, 504ErrorRate, BytesDownloaded, BytesUploaded, CacheHitRate, OriginLatency, Requests, TotalErrorRate, FunctionInvocations, FunctionValidationErrors, FunctionExecutionErrors, FunctionComputeUtilization, FunctionThrottles</td>
+            </tr>
+            <tr>
+            <td>Redshift<br>(AWS/Redshift)</td>
+            <td>ReadIOPS, ReadLatency, ReadThroughput, WriteIOPS, WriteLatency, WriteThroughput, CPUUtilization (cluster aggregate), DatabaseConnections, HealthStatus, MaintenanceMode, CommitQueueLength, ConcurrencyScalingActiveClusters, ConcurrencyScalingSeconds, PercentageDiskSpaceUsed, NetworkReceiveThroughput, NetworkTransmitThroughput, QueriesCompletedPerSecond, QueryDuration, QueryRuntimeBreakdown, TotalTableCount, WLMQueueLength, WLMQueueWaitTime, WLMQueriesCompletedPerSecond, WLMRunningQueries, MaxConfiguredConcurrencyScalingClusters, RedshiftManagedStorageTotalCapacity, SchemaQuota, NumExceededSchemaQuotas, StorageUsed, PercentageQuotaUsed</td>
+            </tr>
+             <tr>
+            <td>WAF<br>(AWS/WAF)</td>
+            <td>AllowedRequests, BlockedRequests, CountedRequests, PassedRequests, CAPTCHAChallengeAttempts, CAPTCHAResponsesValid, CAPTCHAResponsesInvalid, CAPTCHAResponsesTimeout, ChallengeResponsesValid, ChallengeResponsesInvalid</td>
+            </tr>
+            <tr>
+            <td>Shield Advanced<br>(AWS/DDoSProtection)</td>
+            <td>DDoSDetected, DDoSAttackBitsPerSecond, DDoSAttackPacketsPerSecond, DDoSAttackRequestsPerSecond
+            </td>
+            </tr>
+            <tr>
+            <td>Firewall Manager<br>(AWS/FMS)</td>
+            <td>ComplianceViolations</td>
+            </tr>
+            <tr>
+            <td>Route 53 Health Checks<br>(AWS/Route53)</td>
+            <td>ComplianceViolations</td>
+            </tr>
+          </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    </div>
     </div>
 </body>
 </html>

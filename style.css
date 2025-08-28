@@ -986,29 +986,73 @@ margin-top: 0px;
   height: 45px;
   padding-left: 3px
 }
-/*metrics-parameters*/
-#watch1 {
+/*CloudWatch Parameters*/
+ .watch1 {
   margin: 0;
   padding: 0;
-  height: 100%;
-  padding-left: 8%;
+    height: 100%;
+  margin-left: 8%;
   width: calc(100% - 8%);
-  font-family: 'Roboto', sans-serif;
-  font-size: small;
-  font-style: normal;
+   font-family: 'Roboto', sans-serif;
+   font-size: small;
+   font-style: normal; 
+   word-break: break-all;
+   overflow-wrap: break-word;
 }
-#watch1 p,
-#watch1 h1,
-#watch1 h2,
-#watch1 h3,
-#watch1 h4,
-#watch1 h5,
-#watch1 table {
- padding-top: 0;
- padding-bottom: 0;
+.watch1 p,
+.watch1 h1,
+.watch1 h2,
+.watch1 h3,
+.watch1 h4,
+.watch1 table {
+  margin: 0.1rem;
+  padding: 0;
 }
+
 @media (min-width: 768px) {
-  
+.watch2 {
+  width: 100%;
+  max-width: 100%;
+}
+  .watch1 table {
+  table-layout: fixed;
+  width: 99.8%;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+.watch1 table th:first-child,
+.watch1 table td:first-child {
+   width: 8%;
+}
+.watch3 {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.watch3 table th:first-child,
+.watch3 table th:first-child {
+   width: 14%;
+}
+.watch3 table {
+  word-wrap:break-word;
+  overflow-wrap: break-word;
+  table-layout: fixed;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  margin-right: 0%;
+  margin-left: 0%;
+  width: 100%;
+}
+}
+@media (max-width: 767px) {
+.watch1 {
+  padding-left: 20%;
+}
+.watch2 table th:first-child {
+width: 5%;
+}
 }
 /*CW-metrics*/
 .mobile p,
@@ -1023,7 +1067,7 @@ margin-top: 0px;
 @media (min-width: 768px) {
  .mobile {
   height: 100%;
-  padding-left: 8%;
+  margin-left: 8%;
    font-family: 'Roboto', sans-serif;
    font-size: small;
    font-style: normal; 
@@ -1046,6 +1090,7 @@ margin-top: 0px;
   max-width: 100%;
  }
 }
+/*CW-metrics for the mobile screen*/
 @media (max-width: 767px) {
   .mobile {
   margin-left: 30%;
