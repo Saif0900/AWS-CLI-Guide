@@ -1024,7 +1024,7 @@ margin-top: 0px;
 }
 .watch1 table th:first-child,
 .watch1 table td:first-child {
-   width: 8%;
+   width: 7.3%;
 }
 .watch3 {
   width: 100%;
@@ -1032,8 +1032,14 @@ margin-top: 0px;
   box-sizing: border-box;
 }
 .watch3 table th:first-child,
-.watch3 table th:first-child {
-   width: 14%;
+.watch3 table td:first-child {
+    white-space: normal;   
+  word-break: break-word; 
+  overflow-wrap: break-word;
+}
+.watch3 table th:nth-child(2),
+.watch3 table td:nth-child(2) {
+   width: 16.7%;
 }
 .watch3 table {
   word-wrap:break-word;
