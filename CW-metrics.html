@@ -48,6 +48,7 @@
 <div class="m03">
 <span>--namespace</span> <span>--metric-name</span> & <span>--value</span>/<span>--metric-data</span> 
 </div>
+<h4>Following are examples of codes containing both essential and additional parameters:</h4>
 <h4>i) With --metric-name & --value:</h4>
 <div class="m04"><pre class="m05">
  aws cloudwatch put-metric-data \
@@ -77,6 +78,44 @@ aws cloudwatch put-metric-data \
   --storage-resolution 1 \
   --cli-input-json file://metric.json \
   --generate-cli-skeleton</pre>
+</div>
+<h3>c) Getting Metric Data:</h3>
+<h4>Command:</h4>
+<div class="m02">
+<h3>aws cloudwatch get-metric-data</h3>
+</div>    
+<p>This command is used to retrieve historical metric values from Amazon CloudWatch. It can fetch data for one or more metrics at the same time, over a time range you specify. This is the newer and more powerful API compared to get-metric-statistics, because it supports multiple metrics, math expressions, and larger queries.</p> 
+<h4>Followings are essential parameters which are added as extension in the above commands:</h4>
+<div class="m03">
+<span>--metric-data-queries</span> <span>--start-time</span> <span>--end-time</span>
+</div>
+<h4>Following are examples of codes containing both essential and additional parameters:</h4>
+<h4>i) With essential parameters:</h4>
+<div class="m10"><pre class="m05">
+aws cloudwatch get-metric-data \
+  --metric-data-queries '[{"Id":"cpuUtil","MetricStat":{"Metric":{"Namespace":"AWS/EC2","MetricName":"CPUUtilization","Dimensions":
+  [{"Name":"InstanceId","Value":"i-1234567890abcdef0"}]},"Period":300,"Stat":"Average"}}]' \
+  --start-time 2025-08-30T00:00:00Z \
+  --end-time 2025-08-31T00:00:00Z
+</pre>
+</div>
+<h4>Following optional keyparameters can be added as extension in the above commands:</h4>
+<div class="m03">
+<span>--next-token</span> <span>--scan-by</span> <span>--max-datapoints</span> <span>--cli-input-json</span> <span>--generate-cli-skeleton</span> 
+</div>
+<h4>Following are example of code containing both essential and additional parameters:</h4>
+<div class="m11"><pre class="m05">
+aws cloudwatch get-metric-data \
+  --metric-data-queries '[{"Id":"cpuUtil","MetricStat":{"Metric":{"Namespace":"AWS/EC2","MetricName":"CPUUtilization","Dimensions":
+  [{"Name":"InstanceId","Value":"i-1234567890abcdef0"}]},"Period":300,"Stat":"Average"}}]' \
+  --start-time 2025-08-30T00:00:00Z \
+  --end-time 2025-08-31T00:00:00Z \
+  --next-token "abc123" \
+  --scan-by TimestampAscending \
+  --max-datapoints 100 \
+  --cli-input-json file://query.json \
+  --generate-cli-skeleton
+</pre>
 </div>
 </div>
 </div>

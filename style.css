@@ -1069,6 +1069,9 @@ width: 5%;
   margin: 0.01rem;
   padding: 0.01rem;
 }
+.mobile {
+  word-break: break-all;
+}
 /*CW-metrics for the laptop screen*/
 @media (min-width: 768px) {
  .mobile {
@@ -1140,6 +1143,22 @@ width: 5%;
   color: #030202;                              
   border-radius: 15px;
   height: 148px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m10 {
+  background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 74px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m11 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 147px;
   padding-left: 8px;
   margin-top: 0.4rem;
 }
