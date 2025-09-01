@@ -33,7 +33,7 @@
       </tr>
       <tr>
         <td>--namespace</td>
-        <td><b>Compute:</b><br>AWS/EC2, AWS/Lambda, AWS/ECS, AWS/EKS, AWS/ElasticBeanstalk, AWS/AppRunner, AWS/AppStream, AWS/AmplifyHosting, AWS/CodeBuild<br><b>Storage:</b><br>AWS/S3, AWS/EBS, AWS/EFS, AWS/FSx, AWS/Backup<br><b>Databases & Analytics:</b><br>AWS/RDS, AWS/DynamoDB, AWS/Redshift, AWS/Kinesis, AWS/DocDB, AWS/Neptune, AWS/ES (Amazon OpenSearch Service), AWS/Athena, AWS/Glue<br><b>Networking & Content Delivery:</b><br>AWS/ApiGateway, AWS/CloudFront, AWS/NetworkELB, AWS/ApplicationELB, AWS/TransitGateway, AWS/GlobalAccelerator, AWS/ClientVPN, AWS/VPN, AWS/NetworkFirewall, AWS/Route53<br><b>Security, Identity & Compliance:</b><br>AWS/WAF, AWS/WAFV2, AWS/DDoSProtection, AWS/FMS, AWS/Logs, AWS/Shield, AWS/CertificateManager, AWS/Chatbot, AWS/CloudHSM<br><b>Messaging & Notifications:</b><br>AWS/SNS, AWS/SQS<br><b>Application Integration / Workflow:</b><br>AWS/States, AWS/AppFlow, AWS/AppSync<br><b>Media Services:</b><br>AWS/MediaConvert, AWS/MediaLive, AWS/MediaPackage, AWS/MediaTailor<br><b>End-User Computing:</b><br>AWS/WorkSpaces, AWS/DirectoryService<br><b>Machine Learning & Quantum:</b><br>AWS/Braket<br><b>CloudWatch Native:</b><br>AWS/Logs, CloudWatchSynthetics, AWS/RUM<br></td>
+        <td><b>Compute:</b><br>AWS/EC2, AWS/Lambda, AWS/ECS, AWS/EKS, AWS/ElasticBeanstalk, AWS/AppRunner, AWS/AppStream, AWS/AmplifyHosting, AWS/CodeBuild<br><b>Storage:</b><br>AWS/S3, AWS/EBS, AWS/EFS, AWS/FSx, AWS/Backup<br><b>Databases & Analytics:</b><br>AWS/ElastiCache, AWS/RDS, AWS/DynamoDB, AWS/Redshift, AWS/Kinesis, AWS/DocDB, AWS/Neptune, AWS/ES (Amazon OpenSearch Service), AWS/Athena, AWS/Glue<br><b>Networking & Content Delivery:</b><br>AWS/ApiGateway, AWS/CloudFront, AWS/NetworkELB, AWS/ApplicationELB, AWS/TransitGateway, AWS/GlobalAccelerator, AWS/ClientVPN, AWS/VPN, AWS/NetworkFirewall, AWS/Route53<br><b>Security, Identity & Compliance:</b><br>AWS/WAF, AWS/WAFV2, AWS/DDoSProtection, AWS/FMS, AWS/Logs, AWS/Shield, AWS/CertificateManager, AWS/Chatbot, AWS/CloudHSM<br><b>Messaging & Notifications:</b><br>AWS/SNS, AWS/SQS<br><b>Application Integration / Workflow:</b><br>AWS/States, AWS/AppFlow, AWS/AppSync<br><b>Media Services:</b><br>AWS/MediaConvert, AWS/MediaLive, AWS/MediaPackage, AWS/MediaTailor<br><b>End-User Computing:</b><br>AWS/WorkSpaces, AWS/DirectoryService<br><b>Machine Learning & Quantum:</b><br>AWS/Braket<br><b>CloudWatch Native:</b><br>AWS/Logs, CloudWatchSynthetics, AWS/RUM<br></td>
       </tr>
       <tr>
         <td>--metric-name</td>
@@ -111,10 +111,14 @@
             <td>JobsCompleted, JobsErrored, JobsCanceled, JobsWarning, JobsSubmitted</td>
             </tr>
              <tr>
-              <td rowspan="9">Databases & Analytics</td>
+              <td rowspan="10">Databases & Analytics</td>
             <td>RDS<br>(AWS/RDS)</td>
             <td>CPUUtilization, DatabaseConnections, FreeableMemory, FreeStorageSpace, ReadIOPS, WriteIOPS, ReadLatency, WriteLatency, ReadThroughput, WriteThroughput, BurstBalance</td>
             </tr>
+             <tr>
+            <td>ElastiCache<br>(AWS/ElastiCache)</td>
+            <td><b>Redis</b>–CPUUtilization, EngineCPUUtilization, CacheHits, CacheMisses, CurrConnections, NetworkBytesIn, NetworkBytesOut, NewConnections, Evictions, DatabaseMemoryUsagePercentage, ReplicationLag<br><b>Memcached</b>–CPUUtilization, CurrConnections, NetworkBytesIn, NetworkBytesOut, GetHits, GetMisses, CurrItems, Evictions, CasBadval, CasHits, CasMisses, FreeableMemory</td>
+            </tr>  
             <tr>
             <td>DynamoDB<br>(AWS/DynamoDB)</td>
             <td>SystemErrors, UserErrors, ConsumedReadCapacityUnits, ConsumedWriteCapacityUnits, ReadThrottleEvents, WriteThrottleEvents, TimeToLiveDeletedItemCount, ConditionalCheckFailedRequests, TransactionConflict, ReturnedRecordsCount, PendingReplicationCount, ReplicationLatency, ItemCount</td>

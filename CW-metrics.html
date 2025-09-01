@@ -27,28 +27,58 @@
   <h3>What is cloudwatch metric:</h3>
   <p>CloudWatch  shows how your AWS resources are working. For example, they can tell you how busy your CPU is, how much network traffic is flowing, or how much disk space is being used. Metrics are recorded over time so you can see changes and trends. Before you set up alarms or dashboards in CloudWatch, it’s useful to know which metrics are available in your account.</p>
   <p>The following commands are used to work with metrics in CloudWatch. They help you list, view, and understand the metrics that are available for your AWS resources. These commands do not create or change anything; they are mainly for checking which metrics exist and getting details about them.</p>
-<h3>Metrics lists:</h3>
+<h3>a) Metrics lists:</h3>
   <h4>Command:</h4>
   <div class="m02">
 <h3>aws cloudwatch list-metrics</h3>     
  </div>
 <p>This lists all available metrics in your AWS account. You can use it to discover which metrics exist for your resources.</p>
-<h4>Following keyparameters can be added as extension in the above commands:</h4>
-<table border="1" class="m03">
-<tr>
-<th>Required Parameter</th>
-<th>Possible Values</th>
-</tr>
-<tr>
-  <td>--namespace</td>
-  <td>AWS/EC2,AWS/S3,AWS/Lambda,AWS/RDS,AWS/DynamoDB,AWS/EBS,AWS/ELB,AWS/ApplicationELB,<br>AWS/ApiGateway, etc</td>
-</tr>
-<tr>
-  <td>--metric-name</td>
-  <td>CPUUtilization,NumberOfObjects,Invocations...etc</td>
-</tr>
-  </table>
-  </div>
-  </div>
+<h4>Following optional keyparameters can be added as extension in the above commands:</h4>
+<div class="m03">
+<span>--namespace</span> <span>--metric-name</span> <span>--recently-active</span> <span>--cli-input-json</span>
+<span>--page-size</span> <span>--max-items</span> <span>--generate-cli-skeleton</span>
+</div>
+<h3>b) Custom Metrics or add data points to existing Metrics:</h3>
+  <h4>Command:</h4>
+  <div class="m02">
+<h3>aws cloudwatch put-metric-data</h3>     
+</div>
+<p>This command is used to send your own custom numbers (metrics) to Amazon CloudWatch. This is useful when you want to track things that AWS doesn’t provide by default, such as application performance, user activity, error counts, or business data. Once published, these metrics can be monitored in dashboards, analyzed over time, or used to trigger alarms.</p>
+<h4>Followings are essential parameters which are added as extension in the above commands:</h4>
+<div class="m03">
+<span>--namespace</span> <span>--metric-name</span> & <span>--value</span>/<span>--metric-data</span> 
+</div>
+<h4>i) With --metric-name & --value:</h4>
+<div class="m04"><pre class="m05">
+ aws cloudwatch put-metric-data \
+  --namespace "MyAppMetrics" \
+  --metric-name "PageLoadTime" \
+  --value 3.5</pre>
+</div>
+<h4 class="m07">ii) With --metric-data:</h4>
+<div class="m06"><pre class="m08">
+aws cloudwatch put-metric-data \
+  --namespace "MyAppMetrics" \
+  --metric-data '[{"MetricName": "CPUUtilization", "Value": 75}]'
+</pre>
+</div>
+<h4>Following optional keyparameters can be added as extension in the above commands:</h4>
+<div class="m03">
+<span>--unit</span> <span>--timestamp</span> <span>--dimensions</span> <span>--storage-resolution</span> <span>--cli-input-json</span> <span>--generate-cli-skeleton</span>
+</div>
+<div class="m09"><pre class="m08">
+aws cloudwatch put-metric-data \
+  --namespace "MyAppMetrics" \
+  --metric-name "PageLoadTime" \
+  --value 3.5 \
+  --unit Seconds \
+  --timestamp 2025-08-31T08:40:00Z \
+  --dimensions InstanceId=i-1234567890abcdef0,Environment=Production \
+  --storage-resolution 1 \
+  --cli-input-json file://metric.json \
+  --generate-cli-skeleton</pre>
+</div>
+</div>
+</div>
 </body>
 </html>
