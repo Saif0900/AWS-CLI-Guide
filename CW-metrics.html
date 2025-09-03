@@ -90,7 +90,7 @@ aws cloudwatch put-metric-data \
 <span>--metric-data-queries</span> <span>--start-time</span> <span>--end-time</span>
 </div>
 <h4>Following are examples of codes containing both essential and additional parameters:</h4>
-<h4>i) With essential parameters:</h4>
+<h4>With essential parameters:</h4>
 <div class="m10"><pre class="m05">
 aws cloudwatch get-metric-data \
   --metric-data-queries '[{"Id":"cpuUtil","MetricStat":{"Metric":{"Namespace":"AWS/EC2","MetricName":"CPUUtilization","Dimensions":
@@ -117,6 +117,276 @@ aws cloudwatch get-metric-data \
   --generate-cli-skeleton
 </pre>
 </div>
+<h3>d) Getting Metric Data:</h3>
+<h4>Command:</h4>
+<div class="m02">
+<h3>aws cloudwatch list-metric-streams</h3>
+</div>    
+<p>A metric stream is a continuous flow of CloudWatch metrics that you can send in near real time to destinations such as Amazon Kinesis Data Firehose for further processing, storage, or analytics. This command lists all the metric streams in your AWS account so you can see which ones are currently set up and available.</p> 
+<h4>Following optional keyparameters can be added as extension in the above commands:</h4>
+<div class="m03">
+<span>--max-results</span> <span>--next-token</span> <span>--cli-input-json</span> <span>--generate-cli-skeleton</span>  
+</div>
+<h4>Following are example of code containing both essential and additional parameters:</h4>
+<div class="m12"><pre class="m05">
+aws cloudwatch get-metric-data \
+  --metric-data-queries '[{"Id":"cpuUtil","MetricStat":{"Metric":{"Namespace":"AWS/EC2",
+  "MetricName":"CPUUtilization","Dimensions":[{"Name":"InstanceId","Value":"i-1234567890abcdef0"}]},
+  "Period":300,"Stat":"Average"}}]' \
+  --start-time 2025-08-30T00:00:00Z \
+  --end-time 2025-08-31T00:00:00Z  
+</pre>
+</div>
+<h3>e) Creates a new metric stream:</h3>
+<h4>Command:</h4>
+<div class="m02">
+<h3>aws cloudwatch create-metric-stream</h3>
+</div>    
+<p>This command is used to create a new metric stream in your AWS account.</p> 
+<h4>Followings are essential parameters which are added as extension in the above commands:</h4>
+<div class="m03">
+<span>--name</span> <span>--firehose-arn</span> <span>--role-arn</span> <span>--output-format</span>
+</div> 
+<h4>Following are examples of codes containing essential parameters:</h4>
+<div class="m13"><pre class="m05">
+aws cloudwatch create-metric-stream \
+  --name MyMetricStream \
+  --firehose-arn arn:aws:firehose:us-east-1:123456789012:deliverystream/MyFirehose \
+  --role-arn arn:aws:iam::123456789012:role/MyMetricStreamRole \
+  --output-format json
+</pre>
+</div>
+<h4>Following optional keyparameters can be added as extension in the above commands:</h4>
+<div class="m03">
+<span>--include-filters</span> <span>--exclude-filters</span> <span>--tags</span> <span>--cli-input-json</span> <span>--generate-cli-skeleton</span>
+</div>
+<h4>Following are example of code containing both essential and additional parameters:</h4>
+<div class="m14"><pre class="m05">
+aws cloudwatch create-metric-stream \
+  --name MyMetricStream \
+  --firehose-arn arn:aws:firehose:us-east-1:123456789012:deliverystream/MyFirehose \
+  --role-arn arn:aws:iam::123456789012:role/MyMetricStreamRole \
+  --output-format opentelemetry0.7 \
+  --include-filters '[{"Namespace":"AWS/EC2"}]' \
+  --exclude-filters '[{"Namespace":"AWS/Lambda"}]' \
+  --tags Key=Environment,Value=Production \
+  --cli-input-json file://stream.json \
+  --generate-cli-skeleton
+</pre>
+</div>
+<h3>f) Updates the filters or settings of an existing metric stream:</h3>
+<h4>Command:</h4>
+<div class="m02">
+<h3>aws cloudwatch update-metric-stream</h3>
+</div>    
+<p>This commands Update the configuration of an existing metric stream, such as its filters, output format, Firehose destination, or IAM role.</p> 
+<h4>Following essential keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--names</span> 
+</div>
+<p>👉 At least one of the following must also be included (otherwise nothing changes):</p>
+<div class="m03">
+<span>--firehose-arn</span> <span>--role-arn</span> <span>--output-format</span> <span>---include-filters</span>
+<span>--exclude-filters</span>
+</div>
+<h4>Following are example of code containing both essential and additional parameters:</h4>
+<div class="m15"><pre class="m05">
+aws cloudwatch describe-metric-streams \
+  --names MyMetricStream AnotherStream \
+  --next-token abc123 \
+  --max-results 5 \
+  --cli-input-json file://describe.json \
+  --generate-cli-skeleton
+</pre>
+</div>
+<h3>g) Detailed information about one or more metric streams:</h3>
+<h4>Command:</h4>
+<div class="m02">
+<h3>aws cloudwatch describe-metric-streams</h3>
+</div>    
+<p>The command is what you use when you want to see the full setup details of these metric streams. Instead of just listing their names (like list-metric-streams does), this command gives you the full configuration.</p> 
+<h4>Following optional keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--names</span> <span>--next-token</span> <span>--max-results</span> <span>--cli-input-json</span> <span>--generate-cli-skeleton</span>
+</div>
+<h4>Following are example of code containing essential parameters:</h4>
+<h4>i) Update Output Format:</h4>
+<div class="m16"><pre class="m05">
+aws cloudwatch update-metric-stream \
+  --name MyMetricStream \
+  --output-format opentelemetry0.7
+</pre>
+</div>
+<h4>ii) Update Firehose and Role:</h4>
+<div class="m17"><pre class="m05">
+aws cloudwatch update-metric-stream \
+  --name MyMetricStream \
+  --firehose-arn arn:aws:firehose:us-east-1:123456789012:deliverystream/NewFirehose \
+  --role-arn arn:aws:iam::123456789012:role/NewMetricStreamRole
+</pre>
+</div>
+<h4>Following optional keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--firehose-arn</span> <span>--role-arn</span> <span>--output-format</span> <span>--include-filters</span> <span>--exclude-filters</span> <span>--cli-input-json</span> <span>--generate-cli-skeleton</span>
+</div>
+<h4>Following are example of code containing both essential and additional parameters:</h4>
+<div class="m18"><pre class="m05">
+aws cloudwatch update-metric-stream \
+  --name MyMetricStream \
+  --firehose-arn arn:aws:firehose:us-east-1:123456789012:deliverystream/NewFirehose \
+  --role-arn arn:aws:iam::123456789012:role/NewMetricStreamRole \
+  --output-format json \
+  --include-filters '[{"Namespace":"AWS/EC2"}]' \
+  --exclude-filters '[{"Namespace":"AWS/Lambda"}]' \
+  --cli-input-json file://update.json \
+  --generate-cli-skeleton
+</pre>
+</div>
+<h3>h) Modifying an Existing Metric Stream Configuration:</h3>
+<h4>Command:</h4>
+<div class="m02">
+<h3>aws cloudwatch update-metric-stream</h3>
+</div>    
+<p>This command modifies the configuration of an existing metric stream. You can change its Firehose destination, IAM role, output format, or adjust the include/exclude filters that control which metrics are sent.</p> 
+<h4>Following essential keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--names</span> 
+</div>
+<p>👉 At least one of the following must also be included (otherwise nothing changes):</p>
+<div class="m03">
+<span>--firehose-arn</span> <span>--role-arn</span> <span>--output-format</span> <span>--include-filters</span>
+<span>--exclude-filters</span>
+</div>
+<h4>Following are example of code containing essential parameters:</h4>
+<h4>i) Update Only Output Format:</h4>
+<div class="m19"><pre class="m05">
+aws cloudwatch update-metric-stream \
+  --name MyMetricStream \
+  --output-format opentelemetry0.7
+</pre>
+</div>
+<h4>ii) Update Firehose and Role:</h4>
+<div class="m17"><pre class="m05">
+aws cloudwatch update-metric-stream \
+  --name MyMetricStream \
+  --firehose-arn arn:aws:firehose:us-east-1:123456789012:deliverystream/NewFirehose \
+  --role-arn arn:aws:iam::123456789012:role/NewMetricStreamRole
+</pre>
+</div>
+<h4>Following optional keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--firehose-arn</span> <span>--role-arn</span> <span>--output-format</span> <span>--include-filters</span> <span>--exclude-filters</span> <span>--cli-input-json</span> <span>--generate-cli-skeleton</span>
+</div>
+<h4>Following are example of code containing both essential and additional parameters:</h4>
+<div class="m18"><pre class="m05">
+aws cloudwatch update-metric-stream \
+  --name MyMetricStream \
+  --firehose-arn arn:aws:firehose:us-east-1:123456789012:deliverystream/NewFirehose \
+  --role-arn arn:aws:iam::123456789012:role/NewMetricStreamRole \
+  --output-format json \
+  --include-filters '[{"Namespace":"AWS/EC2"}]' \
+  --exclude-filters '[{"Namespace":"AWS/Lambda"}]' \
+  --cli-input-json file://update.json \
+  --generate-cli-skeleton
+</pre>
+</div>
+<h3>i) Activating One or More Existing Metric Streams:</h3>
+<h4>Command:</h4>
+<div class="m02">
+<h3>aws cloudwatch start-metric-streams</h3>
+</div>    
+<p>This command activates one or more existing metric streams. Once started, the stream begins sending metric data to its configured destination (like Kinesis Firehose).</p> 
+<h4>Following essential keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--names</span> 
+</div>
+<h4>Following are example of code containing essential parameters:</h4>
+<div class="m20"><pre class="m05">
+aws cloudwatch start-metric-streams \
+  --names MyMetricStream
+</pre>
+</div>
+<h4>Following optional keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--cli-input-json</span> <span>--generate-cli-skeleton</span> 
+</div>
+<h4>Following are example of code containing both essential and additional parameters:</h4>
+<div class="m21"><pre class="m05">
+aws cloudwatch start-metric-streams \
+  --names MyMetricStream AnotherStream \
+  --cli-input-json file://start.json \
+  --generate-cli-skeleton
+</pre>
+</div>
+<h3>j) Stopping One or More Active Metric Streams:</h3>
+<h4>Command:</h4>
+<div class="m02">
+<h3>aws cloudwatch stop-metric-streams</h3>
+</div>    
+<p>This command stops one or more active metric streams. Once stopped, the stream no longer sends metric data to its destination until it is started again.</p> 
+<h4>Following essential keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--names</span> 
+</div>
+<h4>Following are example of code containing essential parameters:</h4>
+<h4>i) Stop a Single Metric Stream:</h4>
+<div class="m22"><pre class="m05">
+aws cloudwatch stop-metric-streams \
+  --names MyMetricStream
+</pre>
+</div>
+<h4>ii) Stop Multiple Metric Streams:</h4>
+<div class="m22"><pre class="m05">
+aws cloudwatch stop-metric-streams \
+  --names MyMetricStream AnotherStream
+</pre>
+</div>
+<h4>Following optional keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--cli-input-json</span> <span>--generate-cli-skeleton</span> 
+</div>
+<h4>Following are example of code containing both essential and additional parameters:</h4>
+<div class="m23"><pre class="m05">
+aws cloudwatch stop-metric-streams \
+  --names MyMetricStream AnotherStream \
+  --cli-input-json file://stop.json \
+  --generate-cli-skeleton
+</pre>
+</div>
+<h3>k) Permanently Removing a Metric Stream:</h3>
+<h4>Command:</h4>
+<div class="m02">
+<h3>aws cloudwatch delete-metric-stream</h3>
+</div>    
+<p>This command permanently removes a metric stream from your account. Once deleted, the stream cannot be recovered, and no further metrics will be sent to its destination.</p> 
+<h4>Following essential keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--names</span> 
+</div>
+<h4>Following are example of code containing essential parameters:</h4>
+<h4>i) Stop a Single Metric Stream:</h4>
+<div class="m22"><pre class="m05">
+aws cloudwatch delete-metric-stream \
+  --name MyMetricStream
+</pre>
+</div>
+<h4>ii) Stop Multiple Metric Streams:</h4>
+<div class="m22"><pre class="m05">
+aws cloudwatch stop-metric-streams \
+  --names MyMetricStream AnotherStream
+</pre>
+</div>
+<h4>Following optional keyparameters can be added as extension in the above command:</h4>
+<div class="m03">
+<span>--cli-input-json</span> <span>--generate-cli-skeleton</span> 
+</div>
+<h4>Following are example of code containing both essential and additional parameters:</h4>
+<div class="m23"><pre class="m05">
+aws cloudwatch stop-metric-streams \
+  --names MyMetricStream AnotherStream \
+  --cli-input-json file://stop.json \
+  --generate-cli-skeleton
+</pre>
 </div>
 </div>
 </body>

@@ -1162,6 +1162,102 @@ width: 5%;
   padding-left: 8px;
   margin-top: 0.4rem;
 }
+.m12 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 90px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m13 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 75px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m14 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 145px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m15 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 89px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m16 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 45px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m17 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 62px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m18 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 132px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m19 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 45px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m20 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 26px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m21 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 60px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m22 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 30px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
+.m23 {
+    background-color: #e8eeee;         
+  color: #030202;                              
+  border-radius: 15px;
+  height: 60px;
+  padding-left: 8px;
+  margin-top: 0.4rem;
+}
 }
 /*CW-metrics for the mobile screen*/
 @media (max-width: 767px) {
