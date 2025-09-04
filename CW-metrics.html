@@ -361,19 +361,13 @@ aws cloudwatch stop-metric-streams \
 <p>This command permanently removes a metric stream from your account. Once deleted, the stream cannot be recovered, and no further metrics will be sent to its destination.</p> 
 <h4>Following essential keyparameters can be added as extension in the above command:</h4>
 <div class="m03">
-<span>--names</span> 
+<span>--name</span> 
 </div>
 <h4>Following are example of code containing essential parameters:</h4>
-<h4>i) Stop a Single Metric Stream:</h4>
-<div class="m22"><pre class="m05">
+<h4> Delete a Metric Stream:</h4>
+<div class="m24"><pre class="m05">
 aws cloudwatch delete-metric-stream \
   --name MyMetricStream
-</pre>
-</div>
-<h4>ii) Stop Multiple Metric Streams:</h4>
-<div class="m22"><pre class="m05">
-aws cloudwatch stop-metric-streams \
-  --names MyMetricStream AnotherStream
 </pre>
 </div>
 <h4>Following optional keyparameters can be added as extension in the above command:</h4>
@@ -382,9 +376,9 @@ aws cloudwatch stop-metric-streams \
 </div>
 <h4>Following are example of code containing both essential and additional parameters:</h4>
 <div class="m23"><pre class="m05">
-aws cloudwatch stop-metric-streams \
-  --names MyMetricStream AnotherStream \
-  --cli-input-json file://stop.json \
+aws cloudwatch delete-metric-stream \
+  --name MyMetricStream \
+  --cli-input-json file://delete.json \
   --generate-cli-skeleton
 </pre>
 </div>
